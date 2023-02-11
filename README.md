@@ -1,1 +1,1 @@
-# Multi-vendor-eCommerce-laravel
+# php artisan db:seed --class=UserSeeder
