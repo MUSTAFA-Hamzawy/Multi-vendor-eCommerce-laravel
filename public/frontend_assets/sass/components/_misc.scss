@@ -1,0 +1,348 @@
+/*COMPONENTS -> MISC*/
+/*Countdown*/
+.deals-countdown {
+    .countdown-section {
+        position: relative;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1;
+        padding: 20px 5px 30px 5px;
+        margin-left: 7px;
+        margin-right: 7px;
+        background-color: #fff;
+        border-radius: 4px;
+        border: none;
+        margin-bottom: 2rem;
+        .countdown-amount {
+            display: inline-block;
+            color: $color-brand;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 1;           
+            margin-bottom: 15px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-family: $font-heading;
+        }
+        .countdown-period {
+            position: absolute;
+            left: 0;
+            right: 0;
+            text-align: center;
+            bottom: 10px;
+            display: block;
+            color: $color-text;
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            overflow: hidden;
+            font-size: $font-md;
+            text-transform: capitalize;
+        }
+    }
+}
+.img-grey-hover {
+    opacity: .5;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    transition-duration: 0.3s;
+
+    &:hover {
+        filter: none;
+        opacity: 1;
+        transition-duration: 0.3s;
+    }
+}
+
+.brand-logo {
+    img {
+        width: auto;
+        display: inline-block;
+        padding: 10px 0; 
+              
+    }
+}
+
+/*Heading tab*/
+.heading-tab {
+	align-items: center;
+	flex-direction: row;
+	text-align: left;
+    justify-content: space-between;
+}
+
+/*page loading*/
+.preloader{background-color:#fff;width:100%;height:100%;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999999;-webkit-transition:.6s;-o-transition:.6s;transition:.6s;margin:0 auto}
+.preloader img.jump{max-height:100px;}
+/*custom amine*/
+.loader,
+.bar{width:100px;height:20px;}
+.bar{position:absolute;display:flex;align-items:center;}
+.bar::before,
+.bar::after{content:"";position:absolute;display:block;width:10px;height:10px;background:$color-brand;opacity:0;border-radius:10px;animation:slideleft 3s ease-in-out infinite;}
+.bar1::before{animation-delay:0.00s}
+.bar1::after{animation-delay:0.3s}
+.bar2::before{animation-delay:0.60s}
+.bar2::after{animation-delay:0.90s}
+.bar3::before{animation-delay:1.20s}
+.bar3::after{animation-delay:1.50s}
+
+/*page header*/
+.page-header {
+    .page-title {
+        font-weight: 900;
+        font-size: 4rem;
+    }
+    &.breadcrumb-wrap {
+        padding: 20px;
+        background-color: #fff;
+        border-bottom: 1px solid $border-color;
+        font-family: $font-heading;
+        
+    }
+    
+}
+.breadcrumb {
+    display: inline-block;
+    padding: 0;
+    text-transform: capitalize;
+    color: $color-text;
+    font-size: $font-sm;
+    font-weight: 600;
+    background: none;
+    margin: 0;
+    border-radius: 0;
+    span {
+        position: relative;
+        text-align: center;
+        padding: 0 10px;
+        &::before {
+            content: "\f111";
+            font-family: "uicons-regular-straight"  !important;
+            display: inline-block;
+            font-size: 9px;
+        }
+    }
+}
+/*****************************
+*********  SOCIAL NETWORKS  **********
+******************************/
+.text-center.social-icons ul{display:inline-block}
+.social-icons li{float:left;list-style:none}
+.social-icons li a{float:left;font-size:16px;text-align:center;margin:0 4px 4px 0;border-radius:4px;border:0;background:0 0;color:#333;overflow:hidden;-webkit-transition:all .3s ease;-o-transition:all .3s ease;transition:all .3s ease}
+.dark .social-icons li a{color:#fff}
+.social-icons.social-icons-colored a,
+.social-icons.social-icons-colored-hover a:hover{color:#fff!important;border:0}
+.social-icons.social-icons-colored .social-rss a,
+.social-icons.social-icons-colored-hover .social-rss a:hover,
+.social-icons.social-icons-colored .social-snapchat a,
+.social-icons.social-icons-colored-hover .social-snapchat a:hover{background-color:#faa33d}
+.social-icons.social-icons-colored .social-facebook a,
+.social-icons.social-icons-colored-hover .social-facebook a:hover{background-color:#5d82d1}
+.social-icons.social-icons-colored .social-twitter a,
+.social-icons.social-icons-colored-hover .social-twitter a:hover{background-color:#40bff5}
+.social-icons.social-icons-colored .social-vimeo a,
+.social-icons.social-icons-colored-hover .social-vimeo a:hover{background-color:#35c6ea}
+.social-icons.social-icons-colored .social-myspace a,
+.social-icons.social-icons-colored-hover .social-myspace a:hover{background-color:#008dde}
+.social-icons.social-icons-colored .social-youtube a,
+.social-icons.social-icons-colored-hover .social-youtube a:hover{background-color:#ef4e41}
+.social-icons.social-icons-colored .social-instagram a,
+.social-icons.social-icons-colored-hover .social-instagram a:hover{background-color:#e53d00}
+.social-icons.social-icons-colored .social-gplus a,
+.social-icons.social-icons-colored-hover .social-gplus a:hover{background-color:#d68400}
+.social-icons.social-icons-colored .social-stumbleupon a,
+.social-icons.social-icons-colored-hover .social-stumbleupon a:hover{background-color:#ff5c30}
+.social-icons.social-icons-colored .social-lastfm a,
+.social-icons.social-icons-colored-hover .social-lastfm a:hover{background-color:#f34320}
+.social-icons.social-icons-colored .social-pinterest a,
+.social-icons.social-icons-colored-hover .social-pinterest a:hover{background-color:#e13138}
+.social-icons.social-icons-colored .social-google a,
+.social-icons.social-icons-colored-hover .social-google a:hover{background-color:#eb5e4c}
+.social-icons.social-icons-colored .social-evernote a,
+.social-icons.social-icons-colored-hover .social-evernote a:hover{background-color:#9acf4f}
+.social-icons.social-icons-colored .social-dribbble a,
+.social-icons.social-icons-colored-hover .social-dribbble a:hover{background-color:#f7659c}
+.social-icons.social-icons-colored .social-skype a,
+.social-icons.social-icons-colored-hover .social-skype a:hover{background-color:#13c1f3}
+.social-icons.social-icons-colored .social-forrst a,
+.social-icons.social-icons-colored-hover .social-forrst a:hover{background-color:#45ad76}
+.social-icons.social-icons-colored .social-linkedin a,
+.social-icons.social-icons-colored-hover .social-linkedin a:hover{background-color:#238cc8}
+.social-icons.social-icons-colored .social-wordpress a,
+.social-icons.social-icons-colored-hover .social-wordpress a:hover{background-color:#2592c3}
+.social-icons.social-icons-colored .social-grooveshark a,
+.social-icons.social-icons-colored-hover .social-grooveshark a:hover{background-color:#ffb21d}
+.social-icons.social-icons-colored .social-delicious a,
+.social-icons.social-icons-colored-hover .social-delicious a:hover{background-color:#377bda}
+.social-icons.social-icons-colored .social-behance a,
+.social-icons.social-icons-colored-hover .social-behance a:hover{background-color:#1879fd}
+.social-icons.social-icons-colored .social-dropbox a,
+.social-icons.social-icons-colored-hover .social-dropbox a:hover{background-color:#17a3eb}
+.social-icons.social-icons-colored .social-soundcloud a,
+.social-icons.social-icons-colored-hover .social-soundcloud a:hover{background-color:#ff7e30}
+.social-icons.social-icons-colored .social-deviantart a,
+.social-icons.social-icons-colored-hover .social-deviantart a:hover{background-color:#6a8a7b}
+.social-icons.social-icons-colored .social-yahoo a,
+.social-icons.social-icons-colored-hover .social-yahoo a:hover{background-color:#ab47ac}
+.social-icons.social-icons-colored .social-flickr a,
+.social-icons.social-icons-colored-hover .social-flickr a:hover{background-color:#ff48a3}
+.social-icons.social-icons-colored .social-digg a,
+.social-icons.social-icons-colored-hover .social-digg a:hover{background-color:#75788d}
+.social-icons.social-icons-colored .social-blogger a,
+.social-icons.social-icons-colored-hover .social-blogger a:hover{background-color:#ff9233}
+.social-icons.social-icons-colored .social-tumblr a,
+.social-icons.social-icons-colored-hover .social-tumblr a:hover{background-color:#426d9b}
+.social-icons.social-icons-colored .social-quora a,
+.social-icons.social-icons-colored-hover .social-quora a:hover{background-color:#ea3d23}
+.social-icons.social-icons-colored .social-github a,
+.social-icons.social-icons-colored-hover .social-github a:hover{background-color:#3f91cb}
+.social-icons.social-icons-colored .social-amazon a,
+.social-icons.social-icons-colored-hover .social-amazon a:hover{background-color:#ff8e2e}
+.social-icons.social-icons-colored .social-xing a,
+.social-icons.social-icons-colored-hover .social-xing a:hover{background-color:#1a8e8c}
+.social-icons.social-icons-colored .social-wikipedia a,
+.social-icons.social-icons-colored-hover .social-wikipedia a:hover{background-color:#b3b5b8}
+.social-icons.social-icons-border li a{border:1px solid #d7d7d7;background:0 0;color:#333}
+.dark .social-icons.social-icons-border li a{border:1px solid #333!important}
+.dark .social-icons li a .social-icons.social-icons-dark li a{background:#888;color:#fff}
+.social-icons.social-icons-light li a{background:#fff;color:#333;border:1px solid $border-color
+}
+.social-icons.social-icons-rounded li a{border-radius:50%}
+.social-icons.social-icons-square li a{border-radius:0}
+.social-icons.social-icons-xs li a{height:20px;width:20px;line-height:20px;font-size:12px}
+.social-icons.social-icons-sm li a{height:30px;width:30px;line-height:30px;font-size:13px}
+.social-icons.social-icons-md li a{height:38px;width:38px;line-height:38px;font-size:16px}
+.social-icons.social-icons-lg li a{height:42px;width:42px;line-height:42px;font-size:18px}
+.social-icons.social-icons-xl li a{height:48px;width:48px;line-height:48px;font-size:18px}
+.dark .social-icons:not(.social-icons-colored):not(.social-icons-colored-hover) li a:hover{background-color:#1f1f1f}
+.social-icons li:hover i{-webkit-animation:toTopFromBottom .2s forwards;-moz-animation:toTopFromBottom .2s forwards;animation:toTopFromBottom .2s forwards}
+
+/*Map*/
+.leaflet-map {
+    height: 350px;
+    width: 100%;
+}
+/*table*/
+table {
+	width: 100%;
+	margin-bottom: 1.5rem;
+	border-collapse: collapse;
+    vertical-align: middle;
+    td, th {
+        padding: 10px 20px;
+        border: 1px solid $border-color;
+        vertical-align: middle;
+    }
+    thead>tr>th {
+        vertical-align: middle;
+        border-bottom: 0;
+    }
+    p {
+		margin-bottom: 0;
+	}
+    &.clean {
+        td, th {
+            border: 0;
+            border-top: 1px solid $border-color;
+        }
+    }
+    .product-thumbnail img {
+        max-width: 80px;
+    }
+}
+/*divider*/
+.divider {
+    position: relative;
+    overflow: hidden;
+    height: 4px;
+    z-index: 9;
+
+	&.center_icon {
+		text-align: center;
+        height: auto;
+	}
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 0px;
+        height: 0;
+        border-top: 1px solid $border-color;
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+	&::before {
+		margin-top: -1px;
+	}
+	&::after {
+		margin-top: 1px;
+	}
+    i {
+        background-color: #fff;
+        color: #aaa;
+        position: relative;
+        z-index: 1;
+        font-size: 20px;
+        padding: 0 20px;
+        line-height: 1;
+    }
+}
+.divider-2 {
+    width: 100%;
+    height: 1px;
+    background-color: $border-color;
+}
+.bg-square {
+	position: absolute;
+	left: auto;
+	top: 150px;
+	right: 0%;
+	bottom: auto;
+	width: 100%;
+	height: 100%;
+	max-height: 70%;
+	max-width: 45%;
+	min-width: 300px;
+	background-color: #f3fbf5;
+	z-index: -1;
+	max-height: 1200px;
+}
+
+.mobile-promotion {
+    display: none;
+}
+.bg-green {
+    background-color: #cee8e0;
+}
+
+/*modal*/
+.custom-modal .modal-dialog {
+    max-width: 888px !important;
+    border-radius: 0px;
+    overflow: hidden;
+    border: 0;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%) !important;
+    .modal-content {
+        border-radius: 25px;
+        padding: 40px;
+        border: 1px solid $border-color-2;
+    }
+    .btn-close {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        z-index: 2;
+    }
+}
+
+.zoomContainer, .zoomWindow{ z-index: 9999;}
+.single-product {
+    .zoomContainer, .zoomWindow{ z-index: 99;}
+}

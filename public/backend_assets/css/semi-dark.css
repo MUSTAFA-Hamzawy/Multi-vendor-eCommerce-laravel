@@ -1,0 +1,63 @@
+html.semi-dark .sidebar-wrapper {
+	background: #171717;
+	border-right: 1px solid #e4e4e400
+}
+html.semi-dark .sidebar-wrapper .sidebar-header {
+	background: #171717;
+	border-right: 1px solid #e4e4e400;
+	border-bottom: 1px solid rgb(255 255 255 / 15%)
+}
+html.semi-dark .sidebar-wrapper .sidebar-header .logo-text {
+	color: #e7e9ec
+}
+html.semi-dark .sidebar-wrapper .sidebar-header .toggle-icon {
+	color: #e7e9ec
+}
+html.semi-dark .sidebar-wrapper .metismenu a {
+	color: #9ea4aa
+}
+html.semi-dark .sidebar-wrapper .metismenu .mm-active>a, html.semi-dark .sidebar-wrapper .metismenu a:active, html.semi-dark .sidebar-wrapper .metismenu a:focus, html.semi-dark .sidebar-wrapper .metismenu a:hover {
+	color: #fff;
+	text-decoration: none;
+	background: rgb(255 255 255 / 18%)
+}
+html.semi-dark .sidebar-wrapper .metismenu ul {
+	border: 1px solid #ffffff00;
+	background: rgb(255 255 255 / 8%)
+}
+html.semi-dark .simplebar-scrollbar:before {
+	background: rgba(255, 255, 255, .4)
+}
+html.semi-dark .logo-icon {
+	filter: invert(1) grayscale(100%) brightness(200%)
+}
+html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-1, html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-10, html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-11, html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-12, html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-2, html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-3, html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-4, html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-5, html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-6, html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-7, html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-8, html.ColorLessIcons .sidebar-wrapper .metismenu .icon-color-9 {
+	color: inherit
+}
+html.minimal-theme .topbar {
+	background: #f4f4f4;
+	border-bottom: 1px solid #dee2e6;
+	box-shadow: none!important
+}
+html.minimal-theme .topbar .search-control {
+	background-color: #fff;
+	border: 1px solid #dee2e6
+}
+html.minimal-theme .topbar .user-box {
+	border-left: 1px solid #dee2e6
+}
+html.minimal-theme .sidebar-wrapper {
+	background: #f4f4f4;
+	border-right: 1px solid #dee2e6;
+	box-shadow: none!important
+}
+html.minimal-theme .sidebar-header {
+	background: #f4f4f4;
+	border-bottom: 1px solid #dee2e6;
+	background-clip: padding-box
+}
+@media screen and (min-width:1025px) {
+	html.minimal-theme .wrapper.toggled.sidebar-hovered .sidebar-wrapper {
+		box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .12)!important
+	}
+}
