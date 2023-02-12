@@ -16,20 +16,10 @@ class AuthRoleMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $role)
     {
-        $role = Auth::user()->role;
-        switch ($role)
-        {
-            case 'admin':
-                return response()->view('admin_dashboard');
-                break;
-            case 'vendor':
-                return response()->view('vendor_dashboard');
-                break;
-            default:
-                return response()->view('user_dashboard');
-        }
+        $authRole = Auth::user()->role;
 
+        return $role === $authRole ? $next($request) : redirect()->back();
     }
 }
