@@ -21,6 +21,24 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
+     * To determine which url to go after logging in.
+     */
+    private function getRightRedirectRoute(): string{
+        $role = Auth::user()->role;
+        switch ($role){
+            case 'admin':
+                $url = '/admin/dashboard';
+                break;
+            case 'vendor':
+                $url = '/vendor/dashboard';
+                break;
+            default:
+                $url = '/dashboard';
+        }
+        return $url;
+    }
+
+    /**
      * Handle an incoming authentication request.
      */
     public function store(LoginRequest $request): RedirectResponse
@@ -29,7 +47,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended($this->getRightRedirectRoute());
     }
 
     /**
