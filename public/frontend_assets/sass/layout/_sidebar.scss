@@ -1,0 +1,324 @@
+/*LAYOUT -> SIDEBAR*/
+.widget-category {
+    ul > li {
+        padding: 6px 0;
+        transition-duration: .2s;
+        &:hover {
+            padding-left: 5px;
+            transition-duration: .2s;
+        }
+        a {
+            color: $color-grey-2;
+            &:hover {
+                color: $color-brand;
+            }
+        }
+    }
+}
+.price_range {
+	background:url(../imgs/banner/fillter-widget-bg.png) no-repeat right bottom;
+	background-size: 150px;
+}
+.primary-sidebar {
+	.sidebar-widget {
+		position: relative;
+		padding: 30px;
+		border: 1px solid $border-color;
+		border-radius: 15px;
+		box-shadow: $box-shadown-2;
+	}
+}
+.widget-category-2{
+	ul {
+		li {
+			display: flex;
+			align-items: center;
+			line-height: 48px;
+			border-radius: 5px;
+			border: 1px solid $background-1;
+			padding: 9px 18px;
+			margin: 0 0 15px 0;
+			justify-content: space-between;
+			@include transistion-duration-3s;
+			&:last-child {
+				margin-bottom: 0 !important;
+			}
+			&:hover {
+				border: 1px solid $border-color-2;
+				box-shadow: $box-shadown-2;
+				@include transistion-duration-3s;
+				a {
+					color: $color-brand;
+				}
+			}
+			a {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				-ms-flex-align: center;
+				align-items: center;
+				padding: 0;
+				line-height: 1.5;
+				color: $color-heading;
+				font-size: $font-sm;
+
+				&:hover {
+					color: $color-brand;
+					background-color: transparent;
+				}
+				img {
+					max-width: 30px;
+					margin-right: 15px;
+				}
+			}
+
+			&:hover .dropdown-menu {
+				display: block;
+				opacity: 1;
+				visibility: visible;
+				margin-top: 0px;
+				pointer-events: auto;
+			}
+
+			&.has-children {
+				position: relative;
+				> a::after {					
+						content: "\f111";
+						font-family: 'uicons-regular-straight' !important;
+						position: absolute;
+						right: 30px;
+						top: 50%;
+						margin-top: -10px;
+				}
+				.dropdown-menu {
+					left: 100%;
+					top: 0;
+					margin: 0;
+					margin-top: 0px;
+					border: 1px solid $border-color;
+					min-width: 800px;
+					width: 100%;
+					right: 0;
+					border-radius: 0;
+					padding: 20px;
+
+					.submenu-title {
+						font-size: $font-xl;
+						font-weight: 700;
+						display: block;
+						color: $color-brand;
+						padding: 5px 34px;
+					}
+					.header-banner2 {
+						display: block;
+						position: relative;
+						margin-bottom: 15px;
+
+						.banne_info {
+							position: absolute;
+							right: 0;
+							top: 50%;
+							-moz-transform: translateY(-50%);
+							-webkit-transform: translateY(-50%);
+							transform: translateY(-50%);
+							padding: 15px;
+
+							a {
+								text-transform: capitalize;
+								position: relative;
+								padding: 0;
+								color: #272a2c !important;
+
+								&::before {
+									content: "";
+									position: absolute;
+									left: 0;
+									right: 0;
+									bottom: 0;
+									height: 1px;
+									width: 50%;
+									background-color: #272a2c;
+									transition: all 0.5s ease-in-out;
+								}
+							}
+
+						}
+					}
+				}
+			}
+
+		}
+		&.end {
+			li {
+				margin-right: 0;
+			}
+		}
+	}
+
+	
+	.count {
+		display: inline-block;
+		background-color: $border-color-2;
+		width: 24px;
+		height: 24px;
+		line-height: 24px;
+		text-align: center;
+		border-radius: 20px;
+		margin-left: 5px;
+		font-size: 12px;
+		color: $color-heading;
+	}
+}
+/*Social network widget*/
+.follow-us {
+	a {
+		display: block;
+		padding: 12px 10px;
+		color: #fff;
+		width: 50%;
+		border-radius: 5px;
+		font-size: 11px;
+		overflow: hidden;
+		height: 46px;
+		.social-count {
+			font-weight: bold;
+		}
+		&:hover {
+			i {
+				-webkit-transform: translateY(-35px)!important;
+				-ms-transform: translateY(-35px)!important;
+				transform: translateY(-35px)!important;
+			}
+		}
+		i {
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			-webkit-transform: translateY(0);
+			-ms-transform: translateY(0);
+			transform: translateY(0);
+			-webkit-transition: .2s cubic-bezier(.65,.23,.31,.88);
+			-o-transition: .2s cubic-bezier(.65,.23,.31,.88);
+			transition: .2s cubic-bezier(.65,.23,.31,.88);
+			display: inline-block;
+			font-size: 16px;
+			vertical-align: middle;
+			&.nth-2 {
+				position: absolute;
+				top: 38px;
+				left: 0;
+			}
+		}
+	}
+	i {
+		&.v-align-space {
+			border-right: 1px solid rgba(255,255,255,0.5);
+			padding-right: 4px;
+			line-height: 1;
+		}
+	}
+	.social-icon {
+		display: inline-block;
+		position: relative;
+		transition: all .5s ease-in-out;
+		-webkit-transition: all .5s ease-in-out;
+		-moz-transition: all .5s ease-in-out;
+		-o-transition: all .5s ease-in-out;
+		-ms-transition: all .5s ease-in-out;
+	}
+}
+
+
+.follow-us a.follow-us-facebook,
+.single-social-share a.facebook-icon {
+	background: #305c99;
+}
+.follow-us a.follow-us-twitter,
+.single-social-share a.twitter-icon {
+	background: #00cdff;
+}
+.follow-us a.follow-us-instagram,
+.single-social-share a.instagram-icon {
+	background: #3f729b;
+}
+.follow-us a.follow-us-youtube,
+.single-social-share a.pinterest-icon {
+	background: #e22b26;
+}
+
+.sidebar-widget {
+    .widget-header {
+        border-bottom: 1px solid $border-color;
+        h5 {
+            margin-bottom: 0;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+    }
+	.banner-img {
+		float: none;
+	}
+}
+
+.widget_categories li.cat-item,
+.widget_archive li,
+.widget_pages li,
+.widget_recent_comments li,
+.widget_nav_menu li {
+	text-align: right;
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
+    display: table;
+    width: 100%;
+    font-size: 14px;
+    padding: 7px 0;
+}
+.widget_categories {
+       
+	li {
+		&.cat-item {
+			&:last-child {
+				border: none;
+			}
+		}
+	}
+}
+.widget_categories li.cat-item a,
+.widget_archive li a,
+.widget_pages li a {
+	text-align: left;
+	float: left;
+	padding: 0;
+}
+.widget-tags  {
+	li {
+		margin: 0 20px 20px 0;
+	}
+}
+
+.widget_instagram {
+	.insta-feed {
+		padding-top: 5px;
+		margin: -2px;
+		display: flex;
+		flex-wrap: wrap;
+		li {
+			width: 29.33%;
+			margin: 5px;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.social-network {
+	li {
+		display: inline-block;
+		margin: 0 5px 0 0;
+	}
+}
+.vendor-logo img {
+	max-width: 150px;
+}

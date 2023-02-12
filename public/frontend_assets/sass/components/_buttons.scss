@@ -1,0 +1,186 @@
+/*COMPONENTS -> BUTTONS*/
+.btn-default {
+    color: #fff;
+    background-color: $color-brand;
+    border-radius: 50px;
+    padding: 13px 28px;
+	font-family: $font-heading;
+    i {
+        font-weight: 400;
+        font-size: 12px;
+        margin-left: 10px;
+        transition-duration: 0.2s;
+    }
+    &:hover i {
+        margin-left: 15px;
+        transition-duration: 0.2s;
+    }
+}
+.btn-lg {
+    padding: 13px 28px;
+    font-size: 16px;
+}
+.btn-sm {
+    padding: 8px 18px !important;
+    font-size: 12px;
+}
+.btn-md {
+    padding: 10px 24px !important;
+    font-size: 12px;
+}
+.btn-outline {
+    background-color: transparent !important;
+}
+.btn-check:focus + .btn, .btn:focus {
+	outline: 0;
+	box-shadow: none !important;
+}
+.btn {
+	font-family: $font-heading;
+	&:hover {
+		color: #fff;
+	}
+}
+
+.btn-shadow-brand {
+	box-shadow: 0 2px 6px 0 rgba(88,151,251,0.16);
+    border: 1px solid #f7f8f9;
+    &:hover {
+        border: 1px solid $color-brand;
+    }
+}
+.btn-brand {
+	background-color: $color-brand;
+	border-color: $color-brand;
+}
+.btn-heading, button.btn-heading[type="submit"] {
+	background-color: $color-heading;
+	border-color: $color-heading;
+	font-weight: 700;
+	border: 0;
+}
+button.submit, button[type='submit'] {
+    font-size: $font-md;
+    font-weight: 500;
+    padding: 15px 40px;
+    color: #ffffff;
+    border: none;
+    background-color: $color-brand;
+	border: 1px solid $color-brand-dark;
+    border-radius: 10px;
+    &:hover {
+        background-color: $color-brand-dark !important;
+    }
+}
+.btn-brand:hover {
+    background-color: $color-brand-dark !important;
+}
+
+.btn-login {
+    font-weight: 13px;
+	.btn {
+		min-width: unset;
+	}
+	li {
+		margin: 0px 5px 0;
+		display: inline-block;
+		a {
+			border-radius: 5px;
+			padding: 15px 25px;
+			color: #fff;
+			display: block;
+			line-height: 1;
+			text-transform: none;
+			letter-spacing: 0;
+			font-size: 14px;
+		}
+	}
+}
+
+
+.btn, .button {
+	display: inline-block;
+	border: 1px solid transparent;
+	font-size: 14px;
+	font-weight: 700;
+	padding: 12px 30px;
+	border-radius: 4px;
+	color: #fff;
+	border: 1px solid transparent;
+	background-color: $color-brand;
+	cursor: pointer;
+	transition: all 300ms linear 0s;
+	letter-spacing: 0.5px;
+
+	&:hover {
+		background-color: $color-brand-2;
+	}
+	&.btn-sm {
+		padding: 8px 18px;
+		font-size: 12px;
+		text-transform: none;
+		line-height: 1.8;
+	}
+	&.btn-xs {
+		padding: 7px 8px 7px 12px;
+		font-size: 12px;
+		text-transform: none;
+		display: inline-flex;
+		flex-wrap: wrap;
+		line-height: 1.3;
+		i {
+			font-size: 14px !important;
+			line-height: 0;
+		}
+	}
+	&.btn-rounded {
+		border-radius: 50px;
+	}
+	&.btn-secondary {
+		background-color: $color-secondary;
+		border-color: $color-secondary;
+	}
+	&.btn-facebook {
+		background: #3b5998;
+		border-color: #3b5998;
+	}
+	&.btn-google {
+		background: #d85040;
+		border-color: #d85040;
+	}
+	&.btn-brush {
+		background-color: transparent;
+		color: $color-brand;
+		border: 0;
+		padding: 14px 80px 14px 65px;
+		background-repeat: no-repeat;
+		font-family: $font-heading;
+		i {
+			margin: 3px 0 0 5px;
+		}
+		&.btn-brush-1 {
+			background-image: url(../imgs/theme/btn-brush-bg-1.png);			
+		}
+		&.btn-brush-2 {
+			background-image: url(../imgs/theme/btn-brush-bg-2.png);			
+		}
+		&.btn-brush-3 {
+			background-image: url(../imgs/theme/btn-brush-bg-3.png);			
+		}
+	}
+}
+.comments-area .btn-reply {
+	display: flex !important;
+	align-content: center;
+	align-items: center;
+	i {
+		margin-left: 5px;
+		font-size: 12px;
+	}
+}
+.tags {
+	.btn, .button {
+		border-radius: 4px;
+		float: left;
+	}
+}

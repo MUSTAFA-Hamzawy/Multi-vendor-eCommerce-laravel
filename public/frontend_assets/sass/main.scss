@@ -1,0 +1,76 @@
+/***
+ Theme Name: Nest
+ Description: Grocery, Super Market, eCommerce HTML Template
+ Version: 1.0
+ License: GNU General Public License v2 or later
+ License URI: http://www.gnu.org/licenses/gpl-2.0.html
+==============================
+TABLE CONTENT
+ Import Google Fonts
+ Include Third Party CSS Library
+ GENERAL
+ HEADER
+ Offcanvas Sidebar
+ Search form
+ Main header
+ Mega menu
+ Header layouts
+ Page layouts
+ Pagination
+ Breadcrumb
+ CATEGORY PAGES
+ SINGLE POST
+ Author box
+ comment
+ Post share social
+ WP STYPE
+ Custom amine
+***/
+
+// 1. Configuration and helpers
+@import
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/mixins';
+
+// 2. Vendors
+@import
+  'vendors/vendors-import';
+
+// 3. Base stuff
+@import
+  'base/common',
+  'base/animation',
+  'base/typography';
+
+// 4. Components
+@import
+  'components/buttons',
+  'components/form',
+  'components/slider',
+  'components/card',
+  'components/tabs',
+  'components/misc',
+  'components/banners';
+
+// 5. Page-specific styles
+@import
+  'pages/page',
+  'pages/shop',
+  'pages/blog',
+  'pages/print',
+  'pages/invoice',
+  'pages/vendors';
+
+// 6. Themes
+@import
+  'themes/default';
+
+// 7. Layout-related sections
+@import
+'layout/header',
+'layout/navigation',
+'layout/sidebar',
+'layout/footer',
+'layout/spacing',
+'layout/responsive';

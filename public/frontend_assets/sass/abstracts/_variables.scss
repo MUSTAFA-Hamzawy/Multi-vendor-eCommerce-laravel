@@ -1,0 +1,70 @@
+//1.FONT
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+$font-heading: 'Quicksand', sans-serif;
+$font-text: 'Lato', sans-serif;
+
+$font-xxs: 12px;
+$font-xs: 13px;
+$font-sm: 14px;
+$font-md: 16px;
+$font-lg: 17px;
+$font-xl: 19px;
+$font-xxl: 58px;
+
+//2.COLOR
+$color-brand: #3BB77E;
+$color-brand-dark: #29A56C;
+$color-brand-2: #FDC040;
+$color-primary: #5a97fa;
+$color-secondary: #3e5379;
+$color-warning: #ff9900;
+$color-danger: #FD6E6E;
+$color-success: #81B13D;
+$color-info: #2cc1d8;
+$color-text: #7E7E7E;
+$color-heading: #253D4E;
+$color-grey-1: $color-heading;
+$color-grey-2: #242424;
+$color-grey-4: #adadad;
+$color-grey-9: #f4f5f9;
+$color-muted: #B6B6B6;
+$color-body: #7E7E7E;
+
+$color-1: #fddde4;
+$color-2: #cdebbc;
+$color-3: #d1e8f2;
+$color-4: #cdd4f8;
+$color-5: #f6dbf6;
+$color-6: #fff2e5;
+$color-7: #d77f7a;
+$color-8: #63a2c1;
+$color-9: #F2FCE4;
+$color-10: #FFFCEB;
+$color-11: #ECFFEC;
+$color-12: #FEEFEA;
+$color-13: #FFF3EB;
+$color-14: #FFF3FF;
+$color-15: #F2FCE4;
+
+$color-hot: #f74b81;
+$color-new: #55bb90;
+$color-sale: #67bcee;
+$color-best: #f59758;
+
+//3.Boxshadow
+$box-shadown-1: 20px 20px 40px rgba(0,0,0,.07);;
+$box-shadown-2: 5px 5px 15px rgba(0, 0, 0, 0.05);
+$box-shadown-3: 20px 20px 54px rgba(0, 0, 0, 0.03);
+$box-shadown-3-hover: 20px 20px 54px rgba(0, 0, 0, 0.05);
+
+
+//4. Border
+$border-color: #ececec;
+$border-color-2: #BCE3C9;
+
+//5. Background
+$background-1: #F2F3F4;
+$background-2: #F4F6FA;
+$background-3: #DEF9EC;
+

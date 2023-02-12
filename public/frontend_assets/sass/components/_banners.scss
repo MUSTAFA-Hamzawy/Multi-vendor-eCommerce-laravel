@@ -1,0 +1,249 @@
+/*COMPONENTS -> BANNERS*/
+.banner-left-icon {
+    position: relative;
+    background: #F4F6FA;
+    padding: 20px;
+    border-radius: 10px;
+    &:hover {
+        .banner-icon {
+            transform: translateY(-5px);
+            transition-duration: 0.3s;
+        }
+    }
+    .banner-icon {
+        max-width: 60px;
+        margin-right: 20px;
+        transition-duration: 0.3s;
+    }
+    .banner-text {
+        h3 {
+            color: $color-grey-2;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        p {
+            margin-bottom: 0;
+            color: $color-grey-4;
+        }
+    }
+    &.style-2 {
+        position: relative;
+        border: 1px solid $border-color;
+        padding: 20px;
+    }
+}
+.banner-img {
+    position: relative;
+    clear: both;
+    border-radius: 10px;
+    overflow: hidden;
+    img {
+        border-radius: 10px;
+    }
+    &:hover {
+        img {
+            opacity: 0.9;
+        }
+    }
+    &.banner-1 {
+        .banner-text {
+            top: 30%;
+        }
+        &.home-3 {
+            margin-bottom: 24px;
+            border-radius: 10px;
+            overflow: hidden;
+            max-height: 348px;
+        }
+    }
+    &.banner-2 {
+        .banner-text {
+            right: 10px;
+        }
+    }
+    .banner-text {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        transform: translateY(-50%);
+        padding: 0 50px;
+        span {
+            color: $color-grey-4;
+        }
+        h4 {
+            font-weight: 700;
+            margin-bottom: 15px;
+            min-height: 100px;
+        }
+        &:hover h4 {
+            transform: translateY(-5px);
+        }
+        a {
+            i {margin-left: 5px;transition-duration: 0.3s;font-size: 10px;}
+            &:hover i {margin-left: 10px; transition-duration: 0.3s;}
+        }
+
+    }
+    &.style-2 {
+        border-radius: 15px;
+        overflow: hidden;
+        height: 520px;
+        background:url(../imgs/banner/banner-4.png) no-repeat center bottom;
+        background-size: cover;
+        width: 100%;
+        .banner-text {
+            top: 50px;
+            transform: none;
+        }
+    }
+    &.style-3 {
+        border-radius: 15px;
+        overflow: hidden;
+        height: 538px;
+        background:url(../imgs/banner/banner-11.png) no-repeat center bottom;
+        background-size: cover;
+        width: 100%;
+        .banner-text {
+            top: 50px;
+            transform: none;
+        }
+    }
+    &.style-4 {
+        .banner-text h4 {
+            font-size: 28px;
+        }
+    }
+    &.style-5 {
+        .banner-text {
+            right: 0;
+            padding: 0 30px;
+        }
+    }
+    &.style-6 {
+        .banner-text {
+            right: 0;
+            padding: 0 20px 0 0;
+            h6 {
+                font-size: 16px;
+            }
+        }
+    }
+}
+.banner-big {
+    .btn {
+        background: $color-brand !important;
+        color: #fff;
+        border-radius: 3px;
+        font-size: 13px;
+        padding: 10px 22px;
+        border: 0;
+        &:hover {
+            background: $color-brand-2 !important;
+        }
+    }
+}
+
+/*Deal banners*/
+.deal {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	background-color: #fff;
+	background-size: contain;
+	background-position: right center;
+	background-repeat: no-repeat;
+	min-height: 420px;
+
+    > div {
+        width: 100%;
+    }
+
+    h2 {
+        color: $color-danger;
+        font-weight: 600;
+        font-size: 26px;
+        line-height: 1.1;
+        margin-bottom: 5px;
+    }
+    h5 {
+        color: $color-grey-2;
+        font-weight: 400;
+        letter-spacing: 0;
+        margin-bottom: 20px;
+        max-width: 240px;
+    }
+    .deal-content {
+        align-self: center;
+    }
+    .product-title {
+        max-width: 57%;
+        margin-bottom: 20px;
+        font-size: 45px;
+        line-height: 1.23;
+        a {
+            color: $color-grey-1;
+        }
+    }
+
+
+    .btn {
+        background: $color-brand;
+        border: 0;
+        color: #fff;
+        border-radius: 4px;
+        font-size: 14px;
+        padding: 10px 24px;
+
+        i {
+            margin-left: 5px;
+            transition-duration: 0.3s;
+            font-size: 12px;
+        }
+
+        &:hover i {
+            margin-left: 10px;
+            transition-duration: 0.3s;
+        }
+    }
+
+    .deal-bottom {
+        align-self: flex-end;
+        .deals-countdown {
+            margin-left: -12px;
+            margin-bottom: 20px;
+            .countdown-section {
+                border: 2px solid $color-brand;
+                box-shadow: $box-shadown-3;
+            }
+        }
+    }
+
+}
+
+.banner-bg {
+    background-position: center;
+    background-size: cover;
+    padding: 50px;
+}
+
+.banner-features {
+    text-align: center;
+    padding: 25px 15px;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+    box-shadow: $box-shadown-3;
+    &:hover {
+        box-shadow: $box-shadown-3-hover;
+    }
+    img {display: inline-block;margin-bottom: 15px;}
+    h4 {
+        font-size: 13px;
+        font-weight: 700;
+        display: inline-block;
+        padding: 9px 8px 6px 8px;
+        line-height: 1;
+        border-radius: 4px;
+        color: $color-brand;
+    }
+}

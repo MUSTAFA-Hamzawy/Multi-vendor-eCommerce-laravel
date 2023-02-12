@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -8,8 +9,12 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth', 'auth.role'])->name('admin-')->group(function (){
+Route::middleware(['auth', 'auth.role:admin'])
+    ->prefix('admin')
+    ->name('admin-')
+    ->controller(AdminController::class)->group(function (){
 
-    Route::view('dashboard', 'admin_dashboard')->name('dashboard');
+    // dashboard
+    Route::view('dashboard', 'backend.admin.admin_dashboard')->name('dashboard');
 
 });
