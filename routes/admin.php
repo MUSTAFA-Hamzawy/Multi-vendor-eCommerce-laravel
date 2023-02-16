@@ -17,4 +17,8 @@ Route::middleware(['auth', 'auth.role:admin'])
     // dashboard
     Route::view('dashboard', 'backend.admin.admin_dashboard')->name('dashboard');
 
+    // fallback
+    Route::fallback(function (){
+        return redirect('/admin/dashboard');
+    })->name('brand-fallback');
 });
