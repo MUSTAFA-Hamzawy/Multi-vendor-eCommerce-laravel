@@ -23,3 +23,4 @@ require __DIR__.'/admin.php';
 require __DIR__.'/vendor.php';
 require __DIR__.'/profile.php';
 require __DIR__.'/user.php';
+require __DIR__.'/brand.php';

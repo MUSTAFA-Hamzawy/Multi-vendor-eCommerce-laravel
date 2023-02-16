@@ -24,4 +24,9 @@ Route::middleware(['auth', 'auth.role:vendor'])
         Route::post('profile/update_info', 'updateInfo')->name('profile-info-update');
         Route::post('profile/update_image', 'updateImage')->name('profile-image-update');
         Route::post('profile/update_password', 'updatePassword')->name('profile-password-update');
+
+        // fallback
+        Route::fallback(function (){
+            return redirect('/admin/dashboard');
+        })->name('brand-fallback');
     });
