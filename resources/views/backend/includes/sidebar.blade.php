@@ -47,6 +47,28 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a class="has-arrow" style="cursor: pointer">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">Categories</div>
+            </a>
+            <ul>
+                <li> <a href="categories"><i class="bx bx-right-arrow-alt"></i>Show All</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="has-arrow" style="cursor: pointer">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">SubCategories</div>
+            </a>
+            <ul>
+                <li> <a href="sub_categories"><i class="bx bx-right-arrow-alt"></i>Show All</a>
+                </li>
+            </ul>
+        </li>
     </ul>
     <!--end navigation-->
 </div>
