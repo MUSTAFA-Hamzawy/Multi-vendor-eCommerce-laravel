@@ -24,4 +24,5 @@ require __DIR__.'/vendor.php';
 require __DIR__.'/profile.php';
 require __DIR__.'/user.php';
 require __DIR__.'/brand.php';
-require __DIR__.'/categories.php';
+require __DIR__.'/category.php';
+require __DIR__.'/sub_category.php';

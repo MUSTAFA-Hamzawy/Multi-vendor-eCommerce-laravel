@@ -39,4 +39,6 @@ class CategoryRequest extends FormRequest
                 self::ALLOWED_EXTENSION]
         ];
     }
+
+
 }
