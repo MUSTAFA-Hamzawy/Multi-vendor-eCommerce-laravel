@@ -11,13 +11,18 @@ use Illuminate\Support\Facades\Auth;
 
 class BrandController extends Controller
 {
+    use ImageHandlerTrait;
+
+    /**
+     * @param BrandRequest $request
+     */
     public function brandCreate(BrandRequest $request){
         // validate
         $data = $request->validated();
 
         // handling the image
         $image = $request->file('brand_image');
-        $data['brand_image'] = MyHelpers::uploadImage($image, 'uploads/images/brand');
+        $data['brand_image'] = $this->handleRequestImage($request->file('brand_image'), 'uploads/images/brand');
         $data['brand_slug'] = $this->getBrandSlug($data['brand_name']);
 
         // insert
@@ -26,10 +31,18 @@ class BrandController extends Controller
         else
             return redirect('brands')->with('error', 'Failed to add this brand, try again.');
     }
+
+    /**
+     * @param string $brandName
+     * @return array|string|string[]
+     */
     private function getBrandSlug(string $brandName){
         return str_replace(' ', '-', strtolower(trim($brandName)));
     }
 
+    /**
+     * @param Request $request
+     */
     public function brandRemove(Request $request){
         $role = Auth::user()->role;
         try {
@@ -44,6 +57,9 @@ class BrandController extends Controller
         }
     }
 
+    /**
+     * @param BrandRequest $request
+     */
     public function brandUpdate(BrandRequest $request){
         // validation
         $data = $request->validated();
@@ -59,7 +75,7 @@ class BrandController extends Controller
         $newImage = $request->file('brand_image');
         if ($newImage)
         {
-            $data['brand_image'] = MyHelpers::uploadImage($newImage, 'uploads/images/brand');
+            $data['brand_image'] = $this->handleRequestImage($request->file('brand_image'), 'uploads/images/brand');
             MyHelpers::deleteImageFromStorage($brand->brand_image, 'uploads/images/brand/');
         }
 
