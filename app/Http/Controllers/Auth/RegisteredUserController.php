@@ -9,6 +9,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
@@ -30,6 +31,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255', 'alpha'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
@@ -37,17 +39,32 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+
+
         $user = User::create([
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => $request->role,
         ]);
+
+        if ($request->role == 'vendor'){
+            $this->completeVendorRegistration($user);
+        }
 
         event(new Registered($user));
 
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
+    }
+
+    public function completeVendorRegistration($user){
+        DB::table('vendor_shop')->insert([
+            'shop_description' => null,
+            'shop_name' => null,
+            'user_id' => $user->id
+        ]);
     }
 }

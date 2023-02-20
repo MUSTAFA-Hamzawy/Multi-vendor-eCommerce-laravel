@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\User\AdminController;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +18,15 @@ Route::middleware(['auth', 'auth.role:admin'])
 
     // dashboard
     Route::view('dashboard', 'backend.admin.admin_dashboard')->name('dashboard');
+
+    // vendors
+    Route::view('vendors', 'backend.admin.all_vendors',
+    ['data' => User::where('role', '=', 'vendor')->get()]
+    )->name('vendor-list');
+
+    Route::post('activate_vendor', 'vendorActivate')->name('activate-vendor');
+    Route::post('remove_vendor', 'userRemove')->name('vendor-remove');
+
 
     // fallback
     Route::fallback(function (){

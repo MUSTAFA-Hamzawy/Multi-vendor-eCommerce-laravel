@@ -43,6 +43,7 @@
                                 <div class="form-body">
                                     <form class="row g-3" method="POST" action="{{route('register')}}">
                                         @csrf
+                                        <input type="text" name="role" value="vendor" hidden/>
                                         <div class="col-sm-12">
                                             <label for="inputName" class="form-label">Name</label>
                                             <input name="name" type="text" class="form-control" id="inputName"

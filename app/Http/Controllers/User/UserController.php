@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\BrandModel;
 use App\Models\User;
 use App\MyHelpers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -71,5 +72,7 @@ class UserController extends Controller
         ]);
         return response(['msg' => 'Updated Successfully'], 200);
     }
+
+
 
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Requests\User\VendorInfoRequest;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -33,8 +34,9 @@ class VendorController extends UserController
         ];
 
         $vendor_id = DB::table('vendor_shop')
-                    ->where('user_id', '=', $userId)
-                    ->get(['vendor_id'])[0];
+            ->where('user_id', '=', $userId)
+            ->get(['vendor_id'])[0];
+
 
         if ($this->updateUserData($userId, $userData) && $this->updateShopData((int)$vendor_id->vendor_id, $shopData))
             return response(['msg' => "Your Info is updated successfully"], 200);
@@ -62,5 +64,6 @@ class VendorController extends UserController
     private function updateShopData(int $vendor_id, Array $data): bool{
         return DB::table('vendor_shop')->where('vendor_id', '=', $vendor_id)->update($data);
     }
+
 
 }

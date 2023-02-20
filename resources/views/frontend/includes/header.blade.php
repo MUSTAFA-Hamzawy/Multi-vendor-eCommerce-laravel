@@ -190,7 +190,16 @@
                                             <a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
                                         </li>
                                         <li>
-                                            <a href="page-login.html"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a>
+
+                                            <form method="POST" action="{{route('logout')}}">
+                                                @csrf
+                                                <button href="{{route('logout')}}" class="dropdown-item" onclick="event
+                                                .preventDefault();
+                                               this.closest('form').submit();" >
+                                                    <i class="fi fi-rs-sign-out mr-10"></i><span>Logout</span>
+                                                </button>
+                                            </form>
+
                                         </li>
                                     </ul>
                                 </div>
