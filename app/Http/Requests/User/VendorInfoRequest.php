@@ -30,9 +30,9 @@ class VendorInfoRequest extends FormRequest
             'name' => ['required', 'string', 'max:255', 'regex:/^[\pL\s\-]+$/u'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore(Auth::id())],
             'username' => ['required', 'string', 'max:100', Rule::unique('users')->ignore(Auth::id())],
-            'shop_name' => ['required', 'string', 'max:200', 'regex:/^[\pL\s\-]+$/u',
+            'shop_name' => ['nullable', 'string', 'max:200', 'regex:/^[\pL\s\-]+$/u',
                 Rule::unique('vendor_shop')->ignore(Auth::id(), 'user_id')],
-            'shop_description' => ['required', 'string'],
+            'shop_description' => ['nullable', 'string'],
             'phone_number' => ['nullable', 'string', 'max:20'],
             'address' => ['nullable', 'string', 'max:200'],
         ];
