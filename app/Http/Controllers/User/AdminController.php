@@ -4,7 +4,9 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Requests\User\AdminInfoRequest;
 use App\Models\User;
+use App\MyHelpers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends UserController
@@ -25,6 +27,46 @@ class AdminController extends UserController
         }catch (ModelNotFoundException $exception){
             toastr()->error('Failed to save changes, try again.');
             return redirect()->route('admin-profile');
+        }
+    }
+
+    public function userRemove(Request $request){
+        try {
+            $user = User::findOrFail($request->id);
+            MyHelpers::deleteImageFromStorage($user->photo , 'uploads/images/profile/');
+            if ($user->delete())
+                return redirect()->route('admin-vendor-list')->with('success', 'Successfully removed.');  // TODO-me:
+            // refresh here is better
+            else
+                return redirect('admin-vendor-list')->with('error', 'Failed to remove this user.');  // TODO-me:
+            // refresh here is better
+        }catch (ModelNotFoundException $exception){
+            return redirect('admin-vendor-list')->with('error', 'Failed to remove this user.');
+        }
+    }
+
+    public function vendorActivate(Request $request){
+        $vendor_id = $request->vendor_id;
+
+        // check whether activate or de-activate
+        if ($request->current_status == "1"){
+            return $this->vendorDeActivate($vendor_id);
+        }
+
+        try {
+            User::findOrFail($vendor_id)->update(['status' => 1]);
+            return response(['msg' => 'Vendor now is activated.'], 200);
+        }catch (ModelNotFoundException $exception){
+            return redirect()->route('admin-vendor-list')->with('error', 'Failed to activate this vendor, try again');
+        }
+    }
+    public function vendorDeActivate(int $vendor_id){
+
+        try {
+            User::findOrFail($vendor_id)->update(['status' => 0]);
+            return response(['msg' => 'Vendor now is disabled.'], 200);
+        }catch (ModelNotFoundException $exception){
+            return redirect()->route('admin-vendor-list')->with('error', 'Failed to activate this vendor, try again');
         }
     }
 
