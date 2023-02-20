@@ -98,13 +98,13 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input name="shop_name" type="text" class="form-control"
-                                               value="{{$data->shop_name}}" required/>
+                                               value="{{$data->shop_name}}" />
                                         <small style="color: #e20000" class="error" id="shop_name-error"></small>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Joined Since</h6>
+                                        <h6 class="mb-0">Joined Date</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
 
@@ -118,7 +118,8 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <textarea id="mytextarea"
-                                                  name="shop_description">{{$data->shop_description}}</textarea>
+                                                  name="shop_description">{{$data->shop_description
+                                                  }}</textarea>
                                         <small style="color: #e20000" class="error" id="username-error"></small>
                                     </div>
                                 </div>
