@@ -25,7 +25,7 @@ class MyHelpers
     public static function uploadFile($file, string $path): string{
         // encrypt the file name
         $extension = $file->getClientOriginalExtension();
-        $encryptedName = self::encryptFileName($file->getClientOriginalName() . time());
+        $encryptedName = self::encryptFileName($file->getClientOriginalName() . time() . rand(1, 9));
         $fileName = $encryptedName . '.' . $extension;
         $file->move($path, $fileName);
         return $fileName;

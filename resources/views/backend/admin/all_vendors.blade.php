@@ -119,7 +119,6 @@
 
                                     </div>
                                 </form>
-
                             </td>
                             <td>
                                 <div class="d-flex order-actions">
