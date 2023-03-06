@@ -89,6 +89,19 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a class="has-arrow" style="cursor: pointer">
+                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    </div>
+                    <div class="menu-title">Products</div>
+                </a>
+                <ul>
+                    <li> <a href="products"><i class="bx bx-right-arrow-alt"></i>Show All</a>
+                    </li>
+                    <li> <a href="add_product"><i class="bx bx-right-arrow-alt"></i>Add Product</a>
+                    </li>
+                </ul>
+            </li>
         @endif
 
     </ul>
