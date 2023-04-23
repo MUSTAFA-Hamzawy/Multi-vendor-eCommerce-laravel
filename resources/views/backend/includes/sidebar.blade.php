@@ -102,6 +102,19 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a class="has-arrow" style="cursor: pointer">
+                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    </div>
+                    <div class="menu-title">Coupons</div>
+                </a>
+                <ul>
+                    <li> <a href="coupons"><i class="bx bx-right-arrow-alt"></i>Show All</a>
+                    </li>
+                    <li> <a href="add_coupon"><i class="bx bx-right-arrow-alt"></i>Add Coupon</a>
+                    </li>
+                </ul>
+            </li>
         @endif
 
     </ul>
