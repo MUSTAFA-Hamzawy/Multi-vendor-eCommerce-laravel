@@ -18,12 +18,13 @@ Route::get('/', function () {
 });
 
 
-require __DIR__.'/auth.php';
-require __DIR__.'/admin.php';
-require __DIR__.'/vendor.php';
-require __DIR__.'/profile.php';
-require __DIR__.'/user.php';
-require __DIR__.'/brand.php';
-require __DIR__.'/category.php';
-require __DIR__.'/sub_category.php';
-require __DIR__.'/product.php';
+require_once __DIR__.'/auth.php';
+require_once __DIR__.'/admin.php';
+require_once __DIR__.'/vendor.php';
+require_once __DIR__.'/profile.php';
+require_once __DIR__.'/user.php';
+require_once __DIR__.'/brand.php';
+require_once __DIR__.'/category.php';
+require_once __DIR__.'/sub_category.php';
+require_once __DIR__.'/product.php';
+require_once __DIR__.'/coupon.php';
