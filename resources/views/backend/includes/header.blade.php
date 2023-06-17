@@ -1,22 +1,15 @@
 @php use App\MyHelpers;use Illuminate\Support\Facades\Auth; @endphp
-<<<<<<< Updated upstream
+
 @php
     $authData = Auth::user();
     $notificationCount = $authData->unreadNotifications()->count();
-=======
 
-@php
-  $authData = Auth::user();
-  $notificationCount = $authData->unreadNotifications()->count();
-
->>>>>>> Stashed changes
 @endphp
 <header>
     <div class="topbar d-flex align-items-center">
         <nav class="navbar navbar-expand">
             <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
             </div>
-<<<<<<< Updated upstream
             <div class="search-bar flex-grow-1">
                 <div class="position-relative search-bar-box">
                     <input type="text" class="form-control search-control" placeholder="Type to search..."> <span
@@ -32,34 +25,28 @@
                         <a   class="nav-link dropdown-toggle dropdown-toggle-nocaret
                         position-relative"
                            href="#"
-=======
             <div class="top-menu ms-auto">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item dropdown dropdown-large">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#"
->>>>>>> Stashed changes
+
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             @if($notificationCount > 0)
                                 <span id="notification-alert-count" class="alert-count">
                                 {{ $notificationCount  }}
                                 </span>
                             @endif
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+
                             <i class='bx bx-bell'></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a href="javascript:;">
                                 <div class="msg-header">
                                     <p class="msg-header-title">Notifications</p>
-<<<<<<< Updated upstream
-{{--                                    <p class="msg-header-clear ms-auto">Marks all as read</p>--}}
-=======
+
                                     <p id="mark-as-read" class="msg-header-clear ms-auto" >Marks all as
                                         read</p>
->>>>>>> Stashed changes
                                 </div>
                             </a>
                             <div class="header-notifications-list">
@@ -84,8 +71,7 @@
                             </div>
                         </div>
                     </li>
-<<<<<<< Updated upstream
-=======
+
                     <li class="nav-item dropdown dropdown-large">
 
                         <div class="dropdown-menu dropdown-menu-end" hidden>
@@ -95,7 +81,6 @@
                             </div>
                         </div>
                     </li>
->>>>>>> Stashed changes
                 </ul>
             </div>
             <div class="user-box dropdown">
@@ -136,7 +121,7 @@
     </div>
 </header>
 
-<<<<<<< Updated upstream
+
 @section('AjaxScript')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -166,6 +151,3 @@
     </script>
 
 @endsection
-=======
-
->>>>>>> Stashed changes
