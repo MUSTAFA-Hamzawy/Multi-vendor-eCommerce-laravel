@@ -57,13 +57,21 @@ class VendorController extends UserController
     }
 
     /**
-     * @param int $vendor_id
+     * @param int $vendorId
      * @param array $data
      * @return bool
      */
-    private function updateShopData(int $vendor_id, Array $data): bool{
-        return DB::table('vendor_shop')->where('vendor_id', '=', $vendor_id)->update($data);
+    private function updateShopData(int $vendorId, Array $data): bool{
+        return DB::table('vendor_shop')->where('vendor_id', '=', $vendorId)->update($data);
     }
 
+    /**
+     * @param int $userId
+     * To return the id of the current user's shop
+     */
+    public static function getVendorId(int $userId){
+        return DB::table('vendor_shop')->where('user_id', $userId)
+            ->select('vendor_id')->value('vendor_id');
+    }
 
 }
