@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CouponModel extends Model
 {
     use HasFactory;
-    protected $table = 'coupons';
+    protected $table = 'coupon';
     protected $primaryKey = 'coupon_id';
     protected $guarded = [];
     public $timestamps = false;

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SubCategoryModel extends Model
 {
     use HasFactory;
-    protected $table = 'sub_categories';
+    protected $table = 'sub_category';
     protected $guarded = [];
     public $timestamps = false;
     protected $primaryKey = 'sub_category_id';
