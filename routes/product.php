@@ -10,18 +10,20 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-//Route::middleware(['auth'])
-//    ->prefix('admin')
-//    ->name('admin-')
-//    ->controller(BrandController::class)->group(function (){
-//        Route::view('brands', 'backend.brand.brand_default', ['data' => BrandModel::all()])->name('brand');
-//        Route::view('add_brand', 'backend.brand.brand_add')->name('brand-add');
-//        Route::post('create_brand', 'brandCreate')->name('brand-create');
-//        Route::get('remove_brand/{id}', 'brandRemove')->name('brand-remove')->whereNumber('id');
-//        Route::post('update_brand', 'brandUpdate')->name('brand-update');
-//
-//
-//    });
+// for admin
+Route::middleware(['auth', 'auth.role:admin'])
+    ->prefix('admin')
+    ->name('admin-')
+    ->controller(ProductController::class)->group(function (){
+
+        Route::view('products', 'backend.product.product_default',
+            ['data' => DB::table('get_product_data')->get()])
+            ->name('product');
+        Route::get('remove_product/{id}', 'productRemove')
+            ->whereNumber('id')
+            ->name('product-remove');
+
+    });
 
 // for vendor
 Route::middleware(['auth', 'auth.role:vendor'])
@@ -29,9 +31,7 @@ Route::middleware(['auth', 'auth.role:vendor'])
     ->name('vendor-')
     ->controller(ProductController::class)->group(function (){
 
-        Route::view('products', 'backend.product.product_default',
-            ['data' => DB::table('get_product_data')->get()])
-            ->name('product');
+        Route::get('products', 'getProducts')->name('product');
         Route::get('add_product', 'productAdd')->name('product-add');
         Route::post('create_product', 'productCreate')->name('product-create');
         Route::get('remove_product/{id}', 'productRemove')
