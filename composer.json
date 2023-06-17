@@ -9,8 +9,9 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
+        "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.7",
-        "realrashid/sweet-alert": "^5.1",
+        "realrashid/sweet-alert": "^7.0",
         "yoeunes/toastr": "^2.3"
     },
     "require-dev": {

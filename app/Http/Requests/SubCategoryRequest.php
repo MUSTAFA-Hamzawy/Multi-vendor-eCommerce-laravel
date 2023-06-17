@@ -42,7 +42,7 @@ class SubCategoryRequest extends FormRequest
 
     public function messages()
     {
-        return [        // TODO-me: this is not working ( confirm )
+        return [
             'category_id.required' => 'Category is required',
             'category_id.int' => 'Category is required',
         ];
