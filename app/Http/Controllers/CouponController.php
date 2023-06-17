@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Notification;
 
 class CouponController extends Controller
 {
-    // TODO: event of the coupon on the database table is not working
     public function getAllCoupons(){
         if (Auth::user()->role == 'admin')
             $data = CouponModel::all();

@@ -37,11 +37,9 @@ class AdminController extends UserController
             $user = User::findOrFail($request->id);
             MyHelpers::deleteImageFromStorage($user->photo , 'uploads/images/profile/');
             if ($user->delete())
-                return redirect()->route('admin-vendor-list')->with('success', 'Successfully removed.');  // TODO-me:
-            // refresh here is better
+                return redirect()->route('admin-vendor-list')->with('success', 'Successfully removed.');
             else
-                return redirect('admin-vendor-list')->with('error', 'Failed to remove this user.');  // TODO-me:
-            // refresh here is better
+                return redirect('admin-vendor-list')->with('error', 'Failed to remove this user.');
         }catch (ModelNotFoundException $exception){
             return redirect('admin-vendor-list')->with('error', 'Failed to remove this user.');
         }
