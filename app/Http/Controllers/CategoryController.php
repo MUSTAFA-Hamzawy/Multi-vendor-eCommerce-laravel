@@ -47,12 +47,11 @@ class CategoryController extends Controller
      * @return Application|RedirectResponse|Redirector
      */
     public function categoryRemove(Request $request){
-        $role = Auth::user()->role;
         try {
             $category = CategoryModel::findOrFail($request->id);
             MyHelpers::deleteImageFromStorage($category->category_image , 'uploads/images/category/');
             if ($category->delete())
-                return redirect()->route($role . '-category')->with('success', 'Successfully removed.');
+                return redirect()->route('category')->with('success', 'Successfully removed.');
             else
                 return redirect('categories')->with('error', 'Failed to remove this category.');
         }catch (ModelNotFoundException $exception){

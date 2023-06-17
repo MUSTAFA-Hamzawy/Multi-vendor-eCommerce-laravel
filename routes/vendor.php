@@ -16,9 +16,6 @@ Route::middleware(['auth', 'auth.role:vendor'])
     ->name('vendor-')
     ->controller(VendorController::class)->group(function (){
 
-        // dashboard
-        Route::view('dashboard', 'backend.vendor.vendor_dashboard')->name('dashboard');
-
         // profile
         Route::view('profile', 'backend.profile.vendor_profile')->name('profile');
         Route::post('profile/update_info', 'updateInfo')->name('profile-info-update');
@@ -27,6 +24,6 @@ Route::middleware(['auth', 'auth.role:vendor'])
 
         // fallback
         Route::fallback(function (){
-            return redirect('/admin/dashboard');
+            return redirect('/vendor/profile');
         })->name('brand-fallback');
     });

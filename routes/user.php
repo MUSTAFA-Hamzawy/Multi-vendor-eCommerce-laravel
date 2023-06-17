@@ -13,7 +13,4 @@ Route::middleware(['guest'])->group(function (){
     Route::view('/user_register', 'frontend.auth.register')->name('user-register');
 });
 
-Route::view('/dashboard', 'frontend.account.account')
-    ->middleware(['auth'])
-    ->name('user-dashboard');
 

@@ -27,13 +27,13 @@ class AuthenticatedSessionController extends Controller
         $role = Auth::user()->role;
         switch ($role){
             case 'admin':
-                $url = '/admin/dashboard';
+                $url = '/admin/profile';
                 break;
             case 'vendor':
-                $url = '/vendor/dashboard';
+                $url = '/vendor/profile';
                 break;
             default:
-                $url = '/dashboard';
+                $url = '/profile';
         }
         return $url;
     }

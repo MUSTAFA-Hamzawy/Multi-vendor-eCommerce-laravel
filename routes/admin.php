@@ -16,9 +16,6 @@ Route::middleware(['auth', 'auth.role:admin'])
     ->name('admin-')
     ->controller(AdminController::class)->group(function (){
 
-    // dashboard
-    Route::view('dashboard', 'backend.admin.admin_dashboard')->name('dashboard');
-
     // vendors
     Route::view('vendors', 'backend.admin.all_vendors',
     ['data' => User::where('role', '=', 'vendor')->get()]
