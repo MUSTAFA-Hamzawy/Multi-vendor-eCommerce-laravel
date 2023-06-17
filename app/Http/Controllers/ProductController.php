@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\User\VendorController;
 use App\Http\Requests\ProductRequest;
 use App\Models\BrandModel;
 use App\Models\product\ProductImagesModel;
@@ -286,6 +287,20 @@ class ProductController extends Controller
         }catch (ModelNotFoundException $exception){
             return redirect()->route('vendor-product')->with('error', 'Failed to activate this product, try again');
         }
+    }
+
+    /**
+     * To get the products of the current authenticated vendor/shop
+     */
+    public function getProducts(){
+
+        // getting current shop id
+        $currentVendorId = DB::table('vendor_shop')
+            ->where('user_id', Auth::id())->get('vendor_id')[0]->vendor_id;
+
+        // selecting all products related to this shop
+        $data = ProductModel::where('vendor_id', $currentVendorId)->get();
+        return view('backend.product.product_default', compact('data'));
     }
 
 
