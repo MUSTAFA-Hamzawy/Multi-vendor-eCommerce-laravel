@@ -56,9 +56,9 @@
                     <div class="menu-title">Brands</div>
                 </a>
                 <ul>
-                    <li> <a href="brands"><i class="bx bx-right-arrow-alt"></i>Show All</a>
+                    <li> <a href="{{route('brand')}}"><i class="bx bx-right-arrow-alt"></i>Show All</a>
                     </li>
-                    <li> <a href="add_brand"><i class="bx bx-right-arrow-alt"></i>Add Brand</a>
+                    <li> <a href="{{route('brand-add')}}"><i class="bx bx-right-arrow-alt"></i>Add Brand</a>
                     </li>
                 </ul>
 
@@ -70,9 +70,9 @@
                     <div class="menu-title">Categories</div>
                 </a>
                 <ul>
-                    <li> <a href="categories"><i class="bx bx-right-arrow-alt"></i>Show All</a>
+                    <li> <a href="{{route('category')}}"><i class="bx bx-right-arrow-alt"></i>Show All</a>
                     </li>
-                    <li> <a href="add_category"><i class="bx bx-right-arrow-alt"></i>Add Category</a>
+                    <li> <a href="{{route('category-add')}}"><i class="bx bx-right-arrow-alt"></i>Add Category</a>
                     </li>
                 </ul>
             </li>
@@ -83,9 +83,10 @@
                     <div class="menu-title">Sub Categories</div>
                 </a>
                 <ul>
-                    <li> <a href="sub_categories"><i class="bx bx-right-arrow-alt"></i>Show All</a>
+                    <li> <a href="{{route('sub-category')}}"><i class="bx bx-right-arrow-alt"></i>Show All</a>
                     </li>
-                    <li> <a href="add_sub_category"><i class="bx bx-right-arrow-alt"></i>Add Sub Category</a>
+                    <li> <a href="{{route('sub-category-add')}}"><i class="bx bx-right-arrow-alt"></i>Add Sub
+                            Category</a>
                     </li>
                 </ul>
             </li>
@@ -96,9 +97,10 @@
                     <div class="menu-title">Products</div>
                 </a>
                 <ul>
-                    <li> <a href="products"><i class="bx bx-right-arrow-alt"></i>Show All</a>
+                    <li> <a href="{{route($role . '-product')}}"><i class="bx bx-right-arrow-alt"></i>Show All</a>
                     </li>
-                    <li> <a href="add_product"><i class="bx bx-right-arrow-alt"></i>Add Product</a>
+                    <li> <a href="{{route('vendor-product-add')}}"><i class="bx bx-right-arrow-alt"></i>Add
+                            Product</a>
                     </li>
                 </ul>
             </li>
@@ -109,9 +111,10 @@
                     <div class="menu-title">Coupons</div>
                 </a>
                 <ul>
-                    <li> <a href="coupons"><i class="bx bx-right-arrow-alt"></i>Show All</a>
+                    <li> <a href="{{route($role . '-coupon')}}"><i class="bx bx-right-arrow-alt"></i>Show All</a>
                     </li>
-                    <li> <a href="add_coupon"><i class="bx bx-right-arrow-alt"></i>Add Coupon</a>
+                    <li> <a href="{{route('vendor-coupon-add')}}"><i class="bx bx-right-arrow-alt"></i>Add
+                            Coupon</a>
                     </li>
                 </ul>
             </li>

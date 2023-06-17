@@ -104,16 +104,19 @@
                                 </div>
                             </td>
                             <td>
-                                <form method="POST" action="{{route('admin-activate-vendor')}}" id="activate_form">
+                                <form method="POST" action="{{route('admin-activate-vendor')}}"
+                                      class="active-deactive-form">
                                     @csrf
                                     <input name="vendor_id" value="{{$item->id}}" hidden/>
                                     <input name="current_status" value="{{$item->status}}" hidden/>
                                     <div class="form-check form-switch">
                                         @if($item->status)
-                                            <input name="de_activate" class="btn btn-outline-danger" type="submit"
+                                            <input name="de_activate" class="btn
+                                            btn-outline-danger" type="submit"
                                                    value="De-Active">
                                         @else
-                                            <input name="activate" class="btn btn-outline-success" type="submit"
+                                            <input name="activate" class="btn
+                                            btn-outline-success" type="submit"
                                                    value=" Activate ">
                                         @endif
 
@@ -185,7 +188,7 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
-                $('#activate_form').on('submit', function (event) {
+                $('form.active-deactive-form').click('submit', function (event) {
                     event.preventDefault();
                     $.ajax({
                         url: "{{route('admin-activate-vendor')}}",

@@ -1,20 +1,35 @@
 @php
     use App\MyHelpers;use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\DB;
-    $data = DB::table('get_vendor_data')->where('id', '=', Auth::id())->get()[0];
+    $data = DB::table('get_vendor_data')->where('id', Auth::id())->get()[0];
+    $status = Auth::user()->status;
 @endphp
 
 @extends('backend.layouts.app')
 @section('PageTitle', 'Profile')
 @section('content')
+
+    @if(!$status)
+        <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+            <div class="d-flex align-items-center">
+                <div class="font-35 text-white"><i class="bx bxs-message-square-x"></i>
+                </div>
+                <div class="ms-3">
+                    <h6 class="mb-0 text-white">Your account is not activated</h6>
+                    <div class="text-white">Wait for admin to activate your account</div>
+                </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+    @endif
+
     <!--breadcrumb -->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="breadcrumb-title pe-3">User</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="dashboard"><i class="bx bx-home-alt"></i></a>
-                    </li>
                     <li class="breadcrumb-item active" aria-current="page">Profile</li>
                 </ol>
             </nav>

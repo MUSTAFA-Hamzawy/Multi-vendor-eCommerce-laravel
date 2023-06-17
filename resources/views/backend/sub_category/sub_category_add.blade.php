@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Facades\Auth;$role = Auth::user()->role;
+@endphp
 @extends('backend.layouts.app')
 @section('PageTitle', 'Add Sub Category')
 @section('content')
@@ -8,8 +11,8 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="dashboard"><i class="bx bx-home-alt"></i></a>
-                    </li>
+                    <li class="breadcrumb-item"><a href="{{route($role . '-profile')}}"><i class="bx
+                    bx-home-alt"></i></a></li>
                     <li class="breadcrumb-item active" aria-current="page">Add new sub Category</li>
                 </ol>
             </nav>
@@ -91,7 +94,7 @@
                     this.innerHTML = '';
                 });
                 $.ajax({
-                    url: "{{route('admin-sub-category-create')}}",
+                    url: "{{route('sub-category-create')}}",
                     method: 'POST',
                     data: new FormData(this),
                     dataType: 'JSON',

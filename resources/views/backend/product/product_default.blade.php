@@ -1,4 +1,5 @@
-@php use App\Http\Controllers\ProductController; @endphp
+@php use App\Http\Controllers\ProductController;use Illuminate\Support\Facades\Auth; $role = Auth::user()->role;@endphp
+
 @extends('backend.layouts.app')
 @section('PageTitle', 'Products')
 @section('content')
@@ -8,8 +9,8 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="dashboard"><i class="bx bx-home-alt"></i></a>
-                    </li>
+                    <li class="breadcrumb-item"><a href="{{route($role . '-profile')}}"><i class="bx
+                    bx-home-alt"></i></a></li>
                     <li class="breadcrumb-item active" aria-current="page">Product List</li>
                 </ol>
             </nav>
@@ -21,9 +22,10 @@
         <div class="card-body">
             <div class="table-responsive">
                 <div class="ms-auto" style="margin-bottom: 20px">
-                    <a href="add_product" class="btn btn-primary radius-30 mt-2 mt-lg-0">
-                        <i class="bx bxs-plus-square"></i>Add New Product</a></div>
-
+                    @if(Auth::user()->role == "vendor")
+                        <a href="add_product" class="btn btn-primary radius-30 mt-2 mt-lg-0">
+                            <i class="bx bxs-plus-square"></i>Add New Product</a></div>
+                @endif
                 <table id="data_table" class="table table-striped table-bordered">
                     <thead>
                     <tr>
@@ -44,17 +46,17 @@
                             <td>{{$item->product_quantity}}</td>
                             <td>{{$item->product_price}}</td>
                             <td>
-                                <form method="POST" action="{{route('vendor-product-activate')}}" id="activate_form">
+                                <form method="POST" action="{{route('vendor-product-activate')}}" class="activate_form">
                                     @csrf
                                     <input name="product_id" value="{{$item->product_id}}" hidden/>
                                     <input name="current_status" value="{{$item->product_status}}" hidden/>
                                     <div class="form-check form-switch">
                                         @if($item->product_status)
                                             <input name="de_activate" class="btn btn-outline-danger" type="submit"
-                                                   value="De-Active">
+                                                   value="De-Active" @if(Auth::user()->role == 'admin') disabled @endif>
                                         @else
                                             <input name="activate" class="btn btn-outline-success" type="submit"
-                                                   value=" Activate ">
+                                                   value=" Activate " @if(Auth::user()->role == 'admin') disabled @endif>
                                         @endif
 
                                     </div>
@@ -74,15 +76,18 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Product Details</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
                                             </div>
                                             <div class="card">
                                                 <div class="modal-body">
                                                     <div class="row g-0">
                                                         <div class="col-md-4 border-end">
-                                                            <img src="{{url('uploads/images/product/' . $item->product_thumbnail)}}"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="row mb-3 row-cols-auto g-2 justify-content-center mt-3">
+                                                            <img
+                                                                src="{{url('uploads/images/product/' . $item->product_thumbnail)}}"
+                                                                class="img-fluid" alt="...">
+                                                            <div
+                                                                class="row mb-3 row-cols-auto g-2 justify-content-center mt-3">
                                                                 @foreach(
                                                                 ProductController::getProductImages($item->product_id )
                                                                  as $rowData)
@@ -108,7 +113,10 @@
                                                                         <i class='bx bxs-star text-secondary'></i>
                                                                     </div>
                                                                     <div>142 reviews</div>
-                                                                    <div class="text-success"><i class='bx bxs-cart-alt align-middle'></i> 134 orders</div>
+                                                                    <div class="text-success"><i
+                                                                            class='bx bxs-cart-alt align-middle'></i>
+                                                                        134 orders
+                                                                    </div>
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <span class="price
@@ -123,7 +131,8 @@
 
                                                                     <dt class="col-sm-3">Colors</dt>
                                                                     <dd class="col-sm-9">
-                                                                        <div class="color-indigators d-flex align-items-center gap-2">
+                                                                        <div
+                                                                            class="color-indigators d-flex align-items-center gap-2">
                                                                             @foreach(ProductController::getProductSeparatedColors
                                                                         ($item->product_colors) as $color)
                                                                                 <div class="color-indigator-item"
@@ -142,7 +151,8 @@
                                                                     <dd class="col-sm-9">
                                                                         @foreach(ProductController::getProductSeparatedTags
                                                                         ($item->product_tags) as $tag)
-                                                                            <span class="badge bg-primary">{{$tag}}</span>
+                                                                            <span
+                                                                                class="badge bg-primary">{{$tag}}</span>
                                                                         @endforeach
                                                                     </dd>
 
@@ -166,7 +176,9 @@
                                             </div>
 
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -174,9 +186,12 @@
                             </td>
                             <td>
                                 <div class="d-flex order-actions">
-                                    <a href="edit_product/{{$item->product_id}}"><i class='bx
+                                    @if(Auth::user()->role == "vendor")
+                                        <a href="edit_product/{{$item->product_id}}"><i class='bx
                                        bxs-edit'></i>
-                                    </a>
+                                        </a>
+                                    @endif
+
 
                                     <a href="" class="ms-3" data-bs-toggle="modal"
                                        data-bs-target="#exampleDangerModal-{{$item->product_id}}">
@@ -190,14 +205,17 @@
                                                 <div class="modal-content bg-danger">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title text-white">Sure ?</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light"
-                                                                data-bs-dismiss="modal">Cancel</button>
+                                                                data-bs-dismiss="modal">Cancel
+                                                        </button>
                                                         <button onclick="window.location.replace
                                                         ('remove_product/{{$item->product_id}}');"
-                                                                class="btn btn-dark">Confirm</button>
+                                                                class="btn btn-dark">Confirm
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -217,15 +235,22 @@
     </div>
 @endsection
 @section('plugins')
-    <link href="{{asset('backend_assets')}}/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="{{asset('backend_assets')}}/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
 @endsection
+@section('AjaxScript')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+@endsection
+
 @section('js')
     <script src="{{asset('backend_assets')}}/plugins/datatable/js/jquery.dataTables.min.js"></script>
     <script src="{{asset('backend_assets')}}/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#activate_form').on('submit', function (event) {
+            $('form.activate_form').click('submit', function (event) {
                 event.preventDefault();
                 $.ajax({
                     url: "{{route('vendor-product-activate')}}",
@@ -255,28 +280,26 @@
     </script>
 
     <script>
-        $(document).ready(function() {
-            var table = $('#data_table').DataTable( {
+        $(document).ready(function () {
+            var table = $('#data_table').DataTable({
                 lengthChange: true,
-                buttons: [ 'excel', 'pdf', 'print']
-            } );
+                buttons: ['excel', 'pdf', 'print']
+            });
 
             table.buttons().container()
-                .appendTo( '#data_table_wrapper .col-md-6:eq(0)' );
-        } );
+                .appendTo('#data_table_wrapper .col-md-6:eq(0)');
+        });
     </script>
 
     <script src="sweetalert2.all.min.js"></script>
 
-
-
     @section('js')
         <script type="text/javascript">
-            $(document).ready(function(){
-                $('#product_image').change(function(e){
+            $(document).ready(function () {
+                $('#product_image').change(function (e) {
                     var reader = new FileReader();
-                    reader.onload = function(e){
-                        $('#show_image').attr('src',e.target.result);
+                    reader.onload = function (e) {
+                        $('#show_image').attr('src', e.target.result);
                     }
                     reader.readAsDataURL(e.target.files['0']);
                 });
