@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="en">
-
+@php
+$errList = [];
+$errList['name'] = $errors->get('name') ? $errors->get('name')[0] : null;;
+$errList['email'] = $errors->get('email') ? $errors->get('email')[0] : null;;
+$errList['username'] = $errors->get('username') ? $errors->get('username')[0] : null;;
+$errList['passwordErr'] = $errors->get('password') ? $errors->get('password')[0] : null;
+@endphp
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -29,13 +35,13 @@
                                     </p>
                                 </div>
                                 <div class="d-grid">
-                                    <a class="btn my-4 shadow-sm btn-white" href="javascript:;"> <span class="d-flex justify-content-center align-items-center">
+                                    <a class="btn my-4 shadow-sm btn-white" href="social_auth/google"> <span class="d-flex justify-content-center align-items-center">
                           <img class="me-2" src="{{asset('backend_assets')}}/images/icons/search.svg" width="16"
                                alt="Image
                           Description">
                           <span>Sign Up with Google</span>
 											</span>
-                                    </a> <a href="javascript:;" class="btn btn-facebook"><i class="bx bxl-facebook"></i>Sign Up with Facebook</a>
+                                    </a>
                                 </div>
                                 <div class="login-separater text-center mb-4"> <span>OR SIGN UP WITH EMAIL</span>
                                     <hr/>
@@ -47,20 +53,27 @@
                                         <div class="col-sm-12">
                                             <label for="inputName" class="form-label">Name</label>
                                             <input name="name" type="text" class="form-control" id="inputName"
-                                                   placeholder="Your name" autocomplete="name" autofocus required>
+                                                   placeholder="Your name" autocomplete="name" value="{{old('name')}}"
+                                                   autofocus
+                                                   required>
+                                            <small style="color: #e20000" class="error">{{$errList['name']}}</small>
                                         </div>
                                         <div class="col-12">
                                             <label for="inputEmailAddress" class="form-label">Email Address</label>
                                             <input name="email" type="email" class="form-control"
                                                    id="inputEmailAddress"  autocomplete="username" required
-                                                   placeholder="example@user.com">
+                                                   placeholder="example@user.com" value="{{old('email')}}">
+                                            <small style="color: #e20000" class="error">{{$errList['email']}}</small>
+
                                         </div>
                                         <div class="col-sm-12">
                                             <label for="inputUserName" class="form-label">Username</label>
                                             <input name="username" type="text" class="form-control" id="inputUserName"
                                                    placeholder="Choose a unique username" autocomplete="username"
                                                    autofocus
-                                                   required>
+                                                   required value="{{old('username')}}">
+                                            <small style="color: #e20000" class="error">{{$errList['username']}}</small>
+
                                         </div>
                                         <div class="col-12">
                                             <label for="inputChoosePassword" class="form-label">Password</label>
@@ -69,8 +82,11 @@
                                                        class="form-control border-end-0"
                                                        autocomplete="new-password" required
                                                        id="inputChoosePassword" placeholder="Enter Password">
+
                                                 <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
                                             </div>
+                                            <small style="color: #e20000"
+                                                   class="error">{{$errList['passwordErr']}}</small>
                                         </div>
                                         <div class="col-12">
                                             <label for="inputChoosePassword" class="form-label">Confirm Password
@@ -81,6 +97,8 @@
                                                        autocomplete="new-password" required
                                                        id="password_confirmation" placeholder="Confirm Password">
                                                 <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+
+
                                             </div>
                                         </div>
                                         <div class="col-12">
