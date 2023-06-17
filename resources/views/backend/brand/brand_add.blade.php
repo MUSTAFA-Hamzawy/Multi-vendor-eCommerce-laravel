@@ -1,3 +1,7 @@
+@php use Illuminate\Support\Facades\Auth; @endphp
+@php
+$role = Auth::user()->role;
+@endphp
 @extends('backend.layouts.app')
 @section('PageTitle', 'Add new brand')
 @section('content')
@@ -8,7 +12,8 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="dashboard"><i class="bx bx-home-alt"></i></a>
+                    <li class="breadcrumb-item"><a href="{{route($role . '-profile')}}"><i class="bx
+                    bx-home-alt"></i></a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">Add new brand</li>
                 </ol>
@@ -77,7 +82,7 @@
                     this.innerHTML = '';
                 });
                 $.ajax({
-                    url: "{{route('admin-brand-create')}}",
+                    url: "{{route('brand-create')}}",
                     method: 'POST',
                     data: new FormData(this),
                     dataType: 'JSON',

@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::fallback(function (){
+    return redirect()->route('login');
+});
+
 
 require_once __DIR__.'/auth.php';
 require_once __DIR__.'/admin.php';
@@ -28,3 +32,6 @@ require_once __DIR__.'/category.php';
 require_once __DIR__.'/sub_category.php';
 require_once __DIR__.'/product.php';
 require_once __DIR__.'/coupon.php';
+require_once __DIR__.'/notifications.php';
+require_once __DIR__.'/socialite.php';
+

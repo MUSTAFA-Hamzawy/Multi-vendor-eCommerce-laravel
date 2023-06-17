@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Facades\Auth;$role = Auth::user()->role;
+@endphp
 @extends('backend.layouts.app')
 @section('PageTitle', 'Categories')
 @section('content')
@@ -7,8 +10,8 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="dashboard"><i class="bx bx-home-alt"></i></a>
-                    </li>
+                    <li class="breadcrumb-item"><a href="{{route($role . '-profile')}}"><i class="bx
+                    bx-home-alt"></i></a></li>
                     <li class="breadcrumb-item active" aria-current="page">Category List</li>
                 </ol>
             </nav>
@@ -90,7 +93,7 @@
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <form class="category_form" action="{{route
-                                                            ('admin-category-update')
+                                                            ('category-update')
                                                             }}" method="POST" enctype="multipart/form-data">
                                                                 @csrf
                                                                 <input name="category_id" value="{{$item->category_id}}"
@@ -223,7 +226,7 @@
                         this.innerHTML = '';
                     });
                     $.ajax({
-                        url: "{{route('admin-category-update')}}",
+                        url: "{{route('category-update')}}",
                         method: 'POST',
                         data: new FormData(this),
                         dataType: 'JSON',
@@ -255,6 +258,25 @@
                                 $('#' + key + '-error').text(err[0]);
                                 $('#' + key ).addClass('is-invalid');
                             });
+                        }
+                    });
+                });
+            });
+
+            $(document).ready(function() {
+                $('#mark-as-read').click(function() {
+                    $('.alert-count').remove();
+
+                    $.ajax({
+                        url: "{{route('read-all-notifications')}}",
+                        method: 'GET',
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success : function(response)
+                        {
+                        },
+                        error: function(response) {
                         }
                     });
                 });

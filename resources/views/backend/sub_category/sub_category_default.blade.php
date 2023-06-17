@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Facades\Auth;$role = Auth::user()->role;
+@endphp
 @extends('backend.layouts.app')
 @section('PageTitle', 'Categories')
 @section('content')
@@ -7,8 +10,8 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="dashboard"><i class="bx bx-home-alt"></i></a>
-                    </li>
+                    <li class="breadcrumb-item"><a href="{{route($role . '-profile')}}"><i class="bx
+                    bx-home-alt"></i></a></li>
                     <li class="breadcrumb-item active" aria-current="page">SubCategory List</li>
                 </ol>
             </nav>
@@ -95,7 +98,7 @@
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <form class="sub_category_form" action="{{route
-                                                            ('admin-sub-category-update')
+                                                            ('sub-category-update')
                                                             }}" method="POST" enctype="multipart/form-data">
                                                                 @csrf
                                                                 <input name="sub_category_id"
@@ -254,7 +257,7 @@
                         this.innerHTML = '';
                     });
                     $.ajax({
-                        url: "{{route('admin-sub-category-update')}}",
+                        url: "{{route('sub-category-update')}}",
                         method: 'POST',
                         data: new FormData(this),
                         dataType: 'JSON',

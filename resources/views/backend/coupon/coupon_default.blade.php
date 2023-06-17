@@ -1,4 +1,4 @@
-@php use App\MyHelpers; @endphp
+@php use App\MyHelpers;use Illuminate\Support\Facades\Auth; $role = Auth::user()->role;@endphp
 @extends('backend.layouts.app')
 @section('PageTitle', 'Coupons')
 @section('content')
@@ -8,8 +8,8 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="dashboard"><i class="bx bx-home-alt"></i></a>
-                    </li>
+                    <li class="breadcrumb-item"><a href="{{route($role . '-profile')}}"><i class="bx
+                    bx-home-alt"></i></a></li>
                     <li class="breadcrumb-item active" aria-current="page">Coupon List</li>
                 </ol>
             </nav>
@@ -20,9 +20,12 @@
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
-                <div class="ms-auto" style="margin-bottom: 20px">
-                    <a href="add_coupon" class="btn btn-primary radius-30 mt-2 mt-lg-0">
-                        <i class="bx bxs-plus-square"></i>Add New Coupon</a></div>
+                @if(Auth::user()->role == "vendor")
+                    <div class="ms-auto" style="margin-bottom: 20px">
+                        <a href="add_coupon" class="btn btn-primary radius-30 mt-2 mt-lg-0">
+                            <i class="bx bxs-plus-square"></i>Add New Coupon</a></div>
+                @endif
+
 
                 <table id="data_table" class="table table-striped table-bordered">
                     <thead>
@@ -49,9 +52,13 @@
                             </td>
                             <td>
                                 <div class="d-flex order-actions">
-                                    <a href="" class="" data-bs-toggle="modal"
-                                       data-bs-target="#exampleFullScreenModal-{{$item->coupon_id}}"><i class='bx
+                                    @if(Auth::user()->role == "vendor")
+                                        <a href="" class="" data-bs-toggle="modal"
+                                           data-bs-target="#exampleFullScreenModal-{{$item->coupon_id}}"><i class='bx
                                        bxs-edit'></i></a>
+
+                                    @endif
+
 
                                     <div class="modal fade" id="exampleFullScreenModal-{{$item->coupon_id}}"
                                          tabindex="-1"
@@ -60,7 +67,8 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Edit Coupon</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="card">
@@ -70,7 +78,7 @@
                                                             }}" method="POST" enctype="multipart/form-data">
                                                                 @csrf
                                                                 <input name="coupon_id" value="{{$item->coupon_id}}"
-                                                                       hidden />
+                                                                       hidden/>
                                                                 <div class="row mb-3">
                                                                     <div class="col-sm-3">
                                                                         <h6 class="mb-0">Coupon Code</h6>
@@ -115,7 +123,9 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-3"></div>
                                                                     <div class="col-sm-9 text-secondary">
-                                                                        <input type="submit" class="btn btn-primary px-4" value="Save Changes"
+                                                                        <input type="submit"
+                                                                               class="btn btn-primary px-4"
+                                                                               value="Save Changes"
                                                                         />
                                                                     </div>
                                                                 </div>
@@ -124,7 +134,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -142,14 +154,17 @@
                                                 <div class="modal-content bg-danger">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title text-white">Sure ?</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light"
-                                                                data-bs-dismiss="modal">Cancel</button>
+                                                                data-bs-dismiss="modal">Cancel
+                                                        </button>
                                                         <button onclick="window.location.replace
                                                         ('remove_coupon/{{$item->coupon_id}}');"
-                                                                class="btn btn-dark">Confirm</button>
+                                                                class="btn btn-dark">Confirm
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -169,22 +184,22 @@
     </div>
 @endsection
 @section('plugins')
-    <link href="{{asset('backend_assets')}}/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="{{asset('backend_assets')}}/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
 @endsection
 @section('js')
     <script src="{{asset('backend_assets')}}/plugins/datatable/js/jquery.dataTables.min.js"></script>
     <script src="{{asset('backend_assets')}}/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            var table = $('#data_table').DataTable( {
+        $(document).ready(function () {
+            var table = $('#data_table').DataTable({
                 lengthChange: true,
-                buttons: [ 'excel', 'pdf', 'print']
-            } );
+                buttons: ['excel', 'pdf', 'print']
+            });
 
             table.buttons().container()
-                .appendTo( '#data_table_wrapper .col-md-6:eq(0)' );
-        } );
+                .appendTo('#data_table_wrapper .col-md-6:eq(0)');
+        });
     </script>
 
     <script src="sweetalert2.all.min.js"></script>
@@ -195,16 +210,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+                integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
         <script type="text/javascript">
-            $(document).ready(function(){
-                $('.coupon_form').on('submit', function(event){
+            $(document).ready(function () {
+                $('.coupon_form').on('submit', function (event) {
                     event.preventDefault();
                     // remove errors if the conditions are true
-                    $('.coupon_form *').filter(':input.is-invalid').each(function(){
+                    $('.coupon_form *').filter(':input.is-invalid').each(function () {
                         this.classList.remove('is-invalid');
                     });
-                    $('.coupon_form *').filter('.error').each(function(){
+                    $('.coupon_form *').filter('.error').each(function () {
                         this.innerHTML = '';
                     });
                     $.ajax({
@@ -215,13 +231,12 @@
                         contentType: false,
                         cache: false,
                         processData: false,
-                        success : function(response)
-                        {
+                        success: function (response) {
                             // remove errors if the conditions are true
-                            $('.coupon_form *').filter(':input.is-invalid').each(function(){
+                            $('.coupon_form *').filter(':input.is-invalid').each(function () {
                                 this.classList.remove('is-invalid');
                             });
-                            $('.coupon_form *').filter('.error').each(function(){
+                            $('.coupon_form *').filter('.error').each(function () {
                                 this.innerHTML = '';
                             });
                             Swal.fire({
@@ -234,11 +249,11 @@
                                 window.location.reload();
                             });
                         },
-                        error: function(response) {
+                        error: function (response) {
                             var res = $.parseJSON(response.responseText);
-                            $.each(res.errors, function (key, err){
+                            $.each(res.errors, function (key, err) {
                                 $('#' + key + '-error').text(err[0]);
-                                $('#' + key ).addClass('is-invalid');
+                                $('#' + key).addClass('is-invalid');
                             });
                         }
                     });

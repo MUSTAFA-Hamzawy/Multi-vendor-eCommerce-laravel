@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Facades\Auth;$role = Auth::user()->role;
+@endphp
 @extends('backend.layouts.app')
 @section('PageTitle', 'Add new product')
 @section('plugins')
@@ -12,8 +15,9 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="dashboard"><i class="bx bx-home-alt"></i></a>
-                    </li>
+                    <li class="breadcrumb-item"><a href="{{route($role . '-profile')}}"><i class="bx
+                    bx-home-alt"></i></a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Product</li>
                     <li class="breadcrumb-item active" aria-current="page">Add new product</li>
                 </ol>
             </nav>

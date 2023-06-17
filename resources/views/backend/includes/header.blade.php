@@ -1,127 +1,106 @@
-@php use Illuminate\Support\Facades\Auth; @endphp
+@php use App\MyHelpers;use Illuminate\Support\Facades\Auth; @endphp
+<<<<<<< Updated upstream
+@php
+    $authData = Auth::user();
+    $notificationCount = $authData->unreadNotifications()->count();
+=======
+
 @php
   $authData = Auth::user();
+  $notificationCount = $authData->unreadNotifications()->count();
+
+>>>>>>> Stashed changes
 @endphp
 <header>
     <div class="topbar d-flex align-items-center">
         <nav class="navbar navbar-expand">
             <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
             </div>
+<<<<<<< Updated upstream
             <div class="search-bar flex-grow-1">
                 <div class="position-relative search-bar-box">
-                    <input type="text" class="form-control search-control" placeholder="Type to search..."> <span class="position-absolute top-50 search-show translate-middle-y"><i class='bx bx-search'></i></span>
-                    <span class="position-absolute top-50 search-close translate-middle-y"><i class='bx bx-x'></i></span>
+                    <input type="text" class="form-control search-control" placeholder="Type to search..."> <span
+                        class="position-absolute top-50 search-show translate-middle-y"><i
+                            class='bx bx-search'></i></span>
+                    <span class="position-absolute top-50 search-close translate-middle-y"><i
+                            class='bx bx-x'></i></span>
                 </div>
             </div>
+            <div id="notification-button" class="top-menu ms-auto">
+                <ul class="navbar-nav align-items-center">
+                    <li   class="nav-item dropdown dropdown-large">
+                        <a   class="nav-link dropdown-toggle dropdown-toggle-nocaret
+                        position-relative"
+                           href="#"
+=======
             <div class="top-menu ms-auto">
                 <ul class="navbar-nav align-items-center">
-                    <li class="nav-item mobile-search-icon">
-                        <a class="nav-link" href="#">	<i class='bx bx-search'></i>
-                        </a>
-                    </li>
                     <li class="nav-item dropdown dropdown-large">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">	<i class='bx bx-category'></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <div class="row row-cols-3 g-3 p-3">
-                                <div class="col text-center">
-                                    <div class="app-box mx-auto bg-gradient-cosmic text-white"><i class='bx bx-group'></i>
-                                    </div>
-                                    <div class="app-title">Teams</div>
-                                </div>
-                                <div class="col text-center">
-                                    <div class="app-box mx-auto bg-gradient-burning text-white"><i class='bx bx-atom'></i>
-                                    </div>
-                                    <div class="app-title">Projects</div>
-                                </div>
-                                <div class="col text-center">
-                                    <div class="app-box mx-auto bg-gradient-lush text-white"><i class='bx bx-shield'></i>
-                                    </div>
-                                    <div class="app-title">Tasks</div>
-                                </div>
-                                <div class="col text-center">
-                                    <div class="app-box mx-auto bg-gradient-kyoto text-dark"><i class='bx bx-notification'></i>
-                                    </div>
-                                    <div class="app-title">Feeds</div>
-                                </div>
-                                <div class="col text-center">
-                                    <div class="app-box mx-auto bg-gradient-blues text-dark"><i class='bx bx-file'></i>
-                                    </div>
-                                    <div class="app-title">Files</div>
-                                </div>
-                                <div class="col text-center">
-                                    <div class="app-box mx-auto bg-gradient-moonlit text-white"><i class='bx bx-filter-alt'></i>
-                                    </div>
-                                    <div class="app-title">Alerts</div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown dropdown-large">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">7</span>
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#"
+>>>>>>> Stashed changes
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @if($notificationCount > 0)
+                                <span id="notification-alert-count" class="alert-count">
+                                {{ $notificationCount  }}
+                                </span>
+                            @endif
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
                             <i class='bx bx-bell'></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a href="javascript:;">
                                 <div class="msg-header">
                                     <p class="msg-header-title">Notifications</p>
-                                    <p class="msg-header-clear ms-auto">Marks all as read</p>
+<<<<<<< Updated upstream
+{{--                                    <p class="msg-header-clear ms-auto">Marks all as read</p>--}}
+=======
+                                    <p id="mark-as-read" class="msg-header-clear ms-auto" >Marks all as
+                                        read</p>
+>>>>>>> Stashed changes
                                 </div>
                             </a>
                             <div class="header-notifications-list">
-                                <a class="dropdown-item" href="javascript:;">
-                                    <div class="d-flex align-items-center">
-                                        <div class="notify bg-light-primary text-primary"><i class="bx bx-group"></i>
+                                @forelse($authData->notifications as $notification)
+                                    <a class="dropdown-item" href="javascript:;">
+                                        <div class="d-flex align-items-center">
+                                            <div class="notify bg-light-primary text-primary"><i
+                                                    class="bx {{$notification->data['icon']}}"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="msg-name">{{ $notification->data['title']  }}<span
+                                                        class="msg-time
+                                                float-end">{{MyHelpers::getDiffOfDate($notification->created_at)
+                                                }}</span></h6>
+                                                <p class="msg-info">{{$notification->data['message']}}</p>
+                                            </div>
                                         </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
-												ago</span></h6>
-                                            <p class="msg-info">5 new user registered</p>
-                                        </div>
-                                    </div>
-                                </a>
+                                    </a>
+
+                                @empty
+                                @endforelse
                             </div>
-                            <a href="javascript:;">
-                                <div class="text-center msg-footer">View All Notifications</div>
-                            </a>
                         </div>
                     </li>
+<<<<<<< Updated upstream
+=======
                     <li class="nav-item dropdown dropdown-large">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">8</span>
-                            <i class='bx bx-comment'></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <a href="javascript:;">
-                                <div class="msg-header">
-                                    <p class="msg-header-title">Messages</p>
-                                    <p class="msg-header-clear ms-auto">Marks all as read</p>
-                                </div>
-                            </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" hidden>
+
                             <div class="header-message-list">
-                                <a class="dropdown-item" href="javascript:;">
-                                    <div class="d-flex align-items-center">
-                                        <div class="user-online">
-                                            <img src="{{asset('backend_assets')}}/assets/images/avatars/avatar-1.png"
-                                                 class="msg-avatar"
-                                                 alt="user avatar">
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="msg-name">Daisy Anderson <span class="msg-time float-end">5 sec
-												ago</span></h6>
-                                            <p class="msg-info">The standard chunk of lorem</p>
-                                        </div>
-                                    </div>
-                                </a>
+
                             </div>
-                            <a href="javascript:;">
-                                <div class="text-center msg-footer">View All Messages</div>
-                            </a>
                         </div>
                     </li>
+>>>>>>> Stashed changes
                 </ul>
             </div>
             <div class="user-box dropdown">
-                <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#"
+                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="{{!empty($authData->photo) ?
                                 url('uploads/images/profile/' . $authData->photo) :
                                 url('uploads/images/user_default_image.png' )
@@ -138,10 +117,7 @@
                     <li>
                         <a class="dropdown-item" href="profile"><i class="bx bx-user"></i><span>Profile</span></a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" href="dashboard"><i class='bx
-                    bx-home-circle'></i><span>Dashboard</span></a>
-                    </li>
+
                     <li>
                         <div class="dropdown-divider mb-0"></div>
                     </li>
@@ -149,7 +125,7 @@
                         <form method="POST" action="{{route('logout')}}">
                             @csrf
                             <button href="{{route('logout')}}" class="dropdown-item" onclick="event.preventDefault();
-                                               this.closest('form').submit();" >
+                                               this.closest('form').submit();">
                                 <i class='bx bx-log-out-circle'></i><span>Logout</span>
                             </button>
                         </form>
@@ -159,3 +135,37 @@
         </nav>
     </div>
 </header>
+
+<<<<<<< Updated upstream
+@section('AjaxScript')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('#notification-button').click( function(e){
+                console.log('clicked');
+
+                $.ajax({
+                    url: "{{route('read-all-notifications')}}",
+                    method: 'GET',
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success : function(response)
+                    {
+                        $('#notification-alert-count').remove();
+                    },
+                    error: function(response) {
+                    }
+                });
+            });
+        });
+    </script>
+
+@endsection
+=======
+
+>>>>>>> Stashed changes

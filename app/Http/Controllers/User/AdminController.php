@@ -5,9 +5,11 @@ namespace App\Http\Controllers\User;
 use App\Http\Requests\User\AdminInfoRequest;
 use App\Models\User;
 use App\MyHelpers;
+use App\Notifications\VendorActivated;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class AdminController extends UserController
 {
@@ -54,7 +56,12 @@ class AdminController extends UserController
         }
 
         try {
-            User::findOrFail($vendor_id)->update(['status' => 1]);
+            $vendor = User::findOrFail($vendor_id);
+            $vendor->update(['status' => 1]);
+
+            // notify the vendor
+            Notification::send($vendor, new VendorActivated());
+
             return response(['msg' => 'Vendor now is activated.'], 200);
         }catch (ModelNotFoundException $exception){
             return redirect()->route('admin-vendor-list')->with('error', 'Failed to activate this vendor, try again');

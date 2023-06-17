@@ -13,7 +13,7 @@
     @yield('css')
     <title>@yield('PageTitle')</title>
 </head>
-@include('sweetalert::alert')
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
 <body>
 <!--wrapper-->
@@ -138,6 +138,30 @@
 </div>
 <!--end switcher-->
 @yield('AjaxScript')
+
+{{--notifications-script --}}
+<script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#mark-as-read').click(function() {
+                $('.alert-count').remove();
+
+                $.ajax({
+                    url: "{{route('read-all-notifications')}}",
+                    method: 'GET',
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success : function(response)
+                    {
+                    },
+                    error: function(response) {
+                    }
+                });
+            });
+        });
+    </script>
+
 @include('backend.includes.js')
 @yield('js')
 </body>
