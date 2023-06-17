@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -30,27 +29,22 @@
                                     </p>
                                 </div>
                                 <div class="d-grid">
-                                    <a class="btn my-4 shadow-sm btn-white" href="javascript:;"> <span class="d-flex justify-content-center align-items-center">
+                                    <a class="btn my-4 shadow-sm btn-white" href="social_auth/google"> <span class="d-flex
+                                    justify-content-center align-items-center">
                           <img class="me-2" src="{{asset('backend_assets')}}/images/icons/search.svg" width="16"
                                alt="Image
                           Description">
                           <span>Sign in with Google</span>
 											</span>
-                                    </a> <a href="javascript:;" class="btn btn-facebook"><i class="bx bxl-facebook"></i>Sign in with Facebook</a>
+                                    </a>
                                 </div>
-                                <div class="login-separater text-center mb-4"> <span>OR SIGN IN WITH EMAIL</span>
+                                <div class="login-separater text-center mb-4"> <span>OR SIGN IN WITH USERNAME</span>
                                     <hr/>
                                 </div>
                                 <div class="form-body">
                                     <form id="login_form" class="row g-3" method="POST" action="{{route('login')
                                     }}">
                                         @csrf
-{{--                                        <div class="col-12">--}}
-{{--                                            <label for="inputEmailAddress" class="form-label">Email Address</label>--}}
-{{--                                            <input name="email" type="email" class="form-control" id="inputEmailAddress"--}}
-{{--                                                   placeholder="Email Address" autofocus--}}
-{{--                                                   autocomplete="username" required>--}}
-{{--                                        </div>--}}
 
                                         <div class="col-sm-12">
                                             <label for="inputUserName" class="form-label">Username</label>
@@ -58,7 +52,9 @@
                                                    placeholder="Username" autocomplete="username"
                                                    autofocus
                                                    required>
-                                            <small style="color: #e20000" class="error" id="username-error"></small>
+                                            <small style="color: #e20000" class="error"
+                                                   id="username-error">{{isset($errors->get('username')[0]) ? $errors->get
+                                                   ('username')[0] : null}}</small>
                                         </div>
 
                                         <div class="col-12">
@@ -69,7 +65,6 @@
                                                        id="inputChoosePassword" placeholder="Enter Password"
                                                        required> <a	href="javascript:;"
                                                                        class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
-                                                <small style="color: #e20000" class="error" id="password-error"></small>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -78,8 +73,6 @@
                                                        id="flexSwitchCheckChecked" checked>
                                                 <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6 text-end">	<a href="authentication-forgot-password.html">Forgot Password ?</a>
                                         </div>
                                         <div class="col-12">
                                             <div class="d-grid">
@@ -99,6 +92,7 @@
 </div>
 <!--end wrapper-->
 @include('backend.includes.js')
+
 <!--Password show & hide js -->
 <script>
     $(document).ready(function () {
