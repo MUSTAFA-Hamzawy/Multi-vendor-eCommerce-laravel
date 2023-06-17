@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
     {
 
         $request->validate([
-            'name' => ['required', 'string', 'max:255', 'alpha'],
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'username' => ['required', 'string', 'max:100', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
@@ -52,7 +52,7 @@ class RegisteredUserController extends Controller
         ]);
 
         if ($request->role == 'vendor'){
-            $this->completeVendorRegistration($user);
+            self::completeVendorRegistration($user);
         }
 
         event(new Registered($user));
@@ -66,7 +66,7 @@ class RegisteredUserController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 
-    public function completeVendorRegistration($user){
+    public static function completeVendorRegistration($user){
         DB::table('vendor_shop')->insert([
             'shop_description' => null,
             'shop_name' => null,
