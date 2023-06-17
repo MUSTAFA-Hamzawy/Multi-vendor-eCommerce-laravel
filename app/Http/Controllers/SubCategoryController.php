@@ -55,12 +55,11 @@ class SubCategoryController extends Controller
      * @return Application|RedirectResponse|Redirector
      */
     public function subCategoryRemove(Request $request){
-        $role = Auth::user()->role;
         try {
             $sub_category = SubCategoryModel::findOrFail($request->id);
             MyHelpers::deleteImageFromStorage($sub_category->sub_category_image , 'uploads/images/sub_category/');
             if ($sub_category->delete())
-                return redirect()->route($role . '-sub-category')->with('success', 'Successfully removed.');
+                return redirect()->route('sub-category')->with('success', 'Successfully removed.');
             else
                 return redirect('sub_categories')->with('error', 'Failed to remove this sub Category.');
         }catch (ModelNotFoundException $exception){

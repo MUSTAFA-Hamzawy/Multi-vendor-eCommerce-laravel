@@ -44,12 +44,11 @@ class BrandController extends Controller
      * @param Request $request
      */
     public function brandRemove(Request $request){
-        $role = Auth::user()->role;
         try {
             $brand = BrandModel::findOrFail($request->id);
             MyHelpers::deleteImageFromStorage($brand->brand_image , 'uploads/images/brand/');
             if ($brand->delete())
-                return redirect()->route($role . '-brand')->with('success', 'Successfully removed.');
+                return redirect()->route('brand')->with('success', 'Successfully removed.');
             else
                 return redirect('brands')->with('error', 'Failed to remove this brand.');
         }catch (ModelNotFoundException $exception){
