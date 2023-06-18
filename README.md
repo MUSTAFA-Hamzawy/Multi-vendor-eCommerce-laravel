@@ -26,15 +26,18 @@ It is a backend system for an E-Commerce built with the Laravel framework, provi
 - Automatic coupon deactivation using events in MySQL ( No need to do it manually )
 
 ### Screenshots
-![screenshot_1](https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel/assets/72188665/6dc27462-66be-4c9f-8d16-7676d8a37026)
+![screenshot_1](https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel/assets/72188665/ed55f8ab-62ec-4bf6-86ac-d1a46b164841)
+
 
 <hr />
 
-![screenshot_2](https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel/assets/72188665/8e67d1ad-5846-41ae-a855-b1a045c5d157)
+![screenshot_2](https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel/assets/72188665/40906698-aa10-48dc-b2ea-0e83eb48d5ca)
+
 
 ### Database Diagram
 
-![db_diagram](https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel/assets/72188665/3d1686ca-b8c5-4cf1-81ac-1761846dafa1)
+![db_diagram](https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel/assets/72188665/11bf6490-056b-4356-ad33-3d382c48cb6c)
+
 
 
 ## Demo Video
