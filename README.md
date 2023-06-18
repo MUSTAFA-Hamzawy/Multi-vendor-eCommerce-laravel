@@ -44,7 +44,11 @@ It is a backend system for an E-Commerce built with the Laravel framework, provi
 Video : <a href="https://www.youtube.com/watch?v=goU6Rim3VOY" id="demo_video"> Youtube Link </a>
 
 
-https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel/assets/72188665/f58183e1-b23f-403f-ae32-2efbbe8fceec
+
+
+https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel/assets/72188665/eef57cea-6e74-43b1-8c26-58efd52e72b8
+
+
 
 
 
