@@ -31,7 +31,7 @@ class CouponRequest extends FormRequest
         }
 
         return [
-            'coupon_code' => ['required', 'string', 'max:250', Rule::unique('coupons')->ignore
+            'coupon_code' => ['required', 'string', 'max:250', Rule::unique('coupon')->ignore
             ($currentCouponId, 'coupon_id')],
             'discount_amount' => ['required', 'numeric', 'gt:0', 'lt:100'],
             'expiration_date' => ['required', 'date', 'after:today']

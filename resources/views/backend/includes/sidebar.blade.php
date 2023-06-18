@@ -40,7 +40,7 @@
         @if($role === 'admin')
             <li>
                 <a  href="{{route('admin-vendor-list')}}" style="cursor: pointer">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class='lni lni-world'></i>
                     </div>
                     <div class="menu-title">Vendors</div>
                 </a>
@@ -51,7 +51,7 @@
         @if($status)
             <li>
                 <a class="has-arrow" style="cursor: pointer">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class='lni lni-checkmark-circle'></i>
                     </div>
                     <div class="menu-title">Brands</div>
                 </a>
@@ -65,7 +65,7 @@
             </li>
             <li>
                 <a class="has-arrow" style="cursor: pointer">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class='lni lni-folder'></i>
                     </div>
                     <div class="menu-title">Categories</div>
                 </a>
@@ -78,7 +78,7 @@
             </li>
             <li>
                 <a class="has-arrow" style="cursor: pointer">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class='lni lni-dinner'></i>
                     </div>
                     <div class="menu-title">Sub Categories</div>
                 </a>
@@ -92,7 +92,7 @@
             </li>
             <li>
                 <a class="has-arrow" style="cursor: pointer">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class='lni lni-graph'></i>
                     </div>
                     <div class="menu-title">Products</div>
                 </a>
@@ -106,7 +106,7 @@
             </li>
             <li>
                 <a class="has-arrow" style="cursor: pointer">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class='lni lni-wallet'></i>
                     </div>
                     <div class="menu-title">Coupons</div>
                 </a>

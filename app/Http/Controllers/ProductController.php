@@ -31,7 +31,7 @@ class ProductController extends Controller
      * @return int
      */
     private function getVendorId(): int{
-       return  DB::table('get_vendor_data')->where('user_id', '=', Auth::id())->get('vendor_id')[0]->vendor_id;
+       return  DB::table('get_vendor_data')->where('id', '=', Auth::id())->get('vendor_id')[0]->vendor_id;
     }
 
     /**

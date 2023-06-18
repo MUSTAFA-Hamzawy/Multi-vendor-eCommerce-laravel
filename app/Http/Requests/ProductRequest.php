@@ -28,7 +28,7 @@ class ProductRequest extends FormRequest
         $editCase = $this->get('product_id');
         return [
             'product_name' => ['required', 'string', 'max:250'],
-            'product_code' => [$editCase ? 'nullable' : 'required', 'string', 'max:250', 'unique:products'],
+            'product_code' => [$editCase ? 'nullable' : 'required', 'string', 'max:250', 'unique:product'],
             'product_tags' => ['required', 'string'],
             'product_colors' => ['required', 'string'],
             'product_short_description' => ['required', 'string'],

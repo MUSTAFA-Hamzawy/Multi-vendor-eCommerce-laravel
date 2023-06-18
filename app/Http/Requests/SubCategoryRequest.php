@@ -32,7 +32,7 @@ class SubCategoryRequest extends FormRequest
         }
 
         return [
-            'sub_category_name' => ['required', 'string', 'max:150', Rule::unique('sub_categories')->ignore
+            'sub_category_name' => ['required', 'string', 'max:150', Rule::unique('sub_category')->ignore
             ($currentSubCategoryId, 'sub_category_id')],
             'sub_category_image' => [$currentSubCategoryId ? 'nullable' :'required', 'image', 'mimes:' .
                 self::ALLOWED_EXTENSION],
