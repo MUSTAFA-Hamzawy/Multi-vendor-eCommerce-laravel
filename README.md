@@ -21,7 +21,7 @@ It is a backend system for an E-Commerce built with the Laravel framework, provi
 - User authentication with different levels of access (admin, vendor)
 - User login/signup using Google or creating an account
 - Admin privileges for managing the entire system
-- Admin privileges for managing the entire system
+- Vendor capabilities to manage their own shop
 - CRUD operations for managing brands, coupons, products, categories, and subcategories
 - Automatic coupon deactivation using events in MySQL ( No need to do it manually )
 
@@ -32,7 +32,7 @@ It is a backend system for an E-Commerce built with the Laravel framework, provi
 
 
 ## Demo Video
-Portfolio Website Demo [ Back-end ] : <a href="https://www.youtube.com/watch?v=PrPQpkoDqtI](https://www.youtube.com/watch?v=goU6Rim3VOY&feature=youtu.be" id="demo_video"> Youtube Link </a>
+Portfolio Website Demo [ Back-end ] : <a href="https://www.youtube.com/watch?v=goU6Rim3VOY" id="demo_video"> Youtube Link </a>
 
 
 https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel/assets/72188665/f58183e1-b23f-403f-ae32-2efbbe8fceec
@@ -105,4 +105,4 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 ## License
-See [LICENSE](https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel/blob/main/LICENSE.md) for more information.
+See [LICENSE](https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel/blob/main/LICENSE) for more information.
