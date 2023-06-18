@@ -63,7 +63,7 @@ To get a local copy up and running follow these simple steps.
 1. Clone the repo
 
 ```sh
-    git clone https://github.com/MUSTAFA-Hamzawy/Portfolio-Website.git
+    git clone https://github.com/MUSTAFA-Hamzawy/Multi-vendor-eCommerce-laravel.git
 ```
 
 2. Import the database file from the folder "SQL File"
