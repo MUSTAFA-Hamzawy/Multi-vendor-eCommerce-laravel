@@ -33,7 +33,7 @@ class CategoryRequest extends FormRequest
         }
 
         return [
-            'category_name' => ['required', 'string', 'max:150', Rule::unique('categories')->ignore
+            'category_name' => ['required', 'string', 'max:150', Rule::unique('category')->ignore
             ($currentCategoryId, 'category_id')],
             'category_image' => [$currentCategoryId ? 'nullable' :'required', 'image', 'mimes:' .
                 self::ALLOWED_EXTENSION]

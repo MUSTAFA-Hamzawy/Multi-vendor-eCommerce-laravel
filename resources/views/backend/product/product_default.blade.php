@@ -123,8 +123,7 @@
                                                                     h4">${{$item->product_price}}</span>
                                                                 </div>
                                                                 <p class="card-text
-                                                                fs-6">{{$item->product_long_description ? :
-                                                                $item->product_short_description}}</p>
+                                                                fs-6">{!! $item->product_short_description !!}</p>
                                                                 <dl class="row">
                                                                     <dt class="col-sm-3">Code</dt>
                                                                     <dd class="col-sm-9">{{$item->product_code}}</dd>
